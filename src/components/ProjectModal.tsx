@@ -49,21 +49,21 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
       {/* Backdrop */}
       <div
         id="project-modal-backdrop"
-        className="absolute inset-0 bg-[#050607]/80 backdrop-blur-md cursor-pointer transition-opacity duration-300 opacity-0"
+        className="absolute inset-0 bg-[#02050a]/80 backdrop-blur-md cursor-pointer transition-opacity duration-300 opacity-0"
         onClick={handleClose}
       />
 
       {/* Modal Content */}
       <div
         id="project-modal-box"
-        className="relative bg-[#0B0D10] border border-[#181C24] w-full max-w-2xl rounded-2xl overflow-hidden shadow-2xl scale-95 opacity-0 transition-all duration-300 ease-out flex flex-col max-h-[90vh]"
+        className="relative bg-[#090e17] border border-[#1e293b] w-full max-w-2xl rounded-2xl overflow-hidden shadow-2xl scale-95 opacity-0 transition-all duration-300 ease-out flex flex-col max-h-[90vh]"
       >
         {/* Banner */}
-        <div className="relative aspect-video w-full bg-black/40 overflow-hidden border-b border-[#181C24]">
-          <div className="w-full h-full bg-gradient-to-br from-[#11141B] to-[#050607] flex items-center justify-center">
+        <div className="relative aspect-video w-full bg-black/40 overflow-hidden border-b border-[#1e293b]">
+          <div className="w-full h-full bg-gradient-to-br from-[#111827] to-[#02050a] flex items-center justify-center">
             <i className="bx bx-code-alt text-5xl text-slate-600" />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D10] to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#090e17] to-transparent" />
           <button
             onClick={handleClose}
             className="absolute top-4 right-4 w-9 h-9 flex items-center justify-center bg-black/40 hover:bg-black/60 border border-white/10 hover:border-white/20 text-white rounded-full transition-all duration-200"
@@ -127,10 +127,10 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         </div>
 
         {/* Footer Actions */}
-        <div className="p-4 md:p-6 bg-[#11141B]/40 border-t border-[#181C24] flex flex-col-reverse sm:flex-row items-center justify-end gap-3">
+        <div className="p-4 md:p-6 bg-[#111827]/40 border-t border-[#1e293b] flex flex-col-reverse sm:flex-row items-center justify-end gap-3">
           <button
             onClick={handleClose}
-            className="w-full sm:w-auto inline-flex items-center justify-center bg-[#0B0D10] hover:bg-[#11141B] border border-[#181C24] hover:border-[#2A3040] text-slate-300 hover:text-white px-5 py-2.5 rounded-lg text-xs font-semibold font-mono tracking-tight transition-all duration-200"
+            className="w-full sm:w-auto inline-flex items-center justify-center bg-[#090e17] hover:bg-[#111827] border border-[#1e293b] hover:border-[#334155] text-slate-300 hover:text-white px-5 py-2.5 rounded-lg text-xs font-semibold font-mono tracking-tight transition-all duration-200"
           >
             <span>Close Details</span>
           </button>

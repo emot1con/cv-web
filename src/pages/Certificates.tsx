@@ -9,7 +9,7 @@ export default function Certificates() {
       <section className="py-20 lg:py-32 relative">
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#0B0D10] border border-[#181C24] rounded-full">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#090e17] border border-[#1e293b] rounded-full">
               <span className="text-xs font-semibold font-mono tracking-widest text-slate-400 uppercase">
                 Achievements
               </span>
@@ -23,7 +23,7 @@ export default function Certificates() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {certificates.map((cert) => (
               <SpotlightCard key={cert.id} className="p-6 space-y-4">
-                <div className="aspect-video bg-[#11141B] rounded-lg border border-[#181C24] flex items-center justify-center">
+                <div className="aspect-video bg-[#111827] rounded-lg border border-[#1e293b] flex items-center justify-center">
                   <i className="bx bx-medal text-4xl text-slate-600" />
                 </div>
                 <div className="space-y-1.5">
@@ -52,10 +52,10 @@ export default function Certificates() {
       </section>
 
       {/* Experience Section */}
-      <section className="py-20 lg:py-32 border-t border-[#181C24] relative">
+      <section className="py-20 lg:py-32 border-t border-[#1e293b] relative">
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#0B0D10] border border-[#181C24] rounded-full">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#090e17] border border-[#1e293b] rounded-full">
               <span className="text-xs font-semibold font-mono tracking-widest text-slate-400 uppercase">
                 Career Map
               </span>
@@ -97,7 +97,7 @@ export default function Certificates() {
                     {exp.techStack.map((tech) => (
                       <span
                         key={tech}
-                        className="text-[10px] font-mono font-semibold px-2 py-0.5 bg-[#11141B] border border-[#181C24] rounded text-slate-400"
+                        className="text-[10px] font-mono font-semibold px-2 py-0.5 bg-[#111827] border border-[#1e293b] rounded text-slate-400"
                       >
                         {tech}
                       </span>

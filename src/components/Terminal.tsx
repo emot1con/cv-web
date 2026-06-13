@@ -65,9 +65,9 @@ export default function Terminal() {
   return (
     <div className="relative w-full max-w-lg group">
       <div className="absolute -inset-px rounded-2xl bg-electric-indigo/10 blur-xl opacity-50 group-hover:opacity-75 transition-opacity" />
-      <div className="relative bg-[#0B0D10] border border-[#181C24] rounded-2xl shadow-2xl overflow-hidden shadow-black/80">
+      <div className="relative bg-[#090e17] border border-[#1e293b] rounded-2xl shadow-2xl overflow-hidden shadow-black/80">
         {/* Header Bar */}
-        <div className="bg-[#11141B]/80 px-4 py-3 flex items-center justify-between text-xs text-slate-400 border-b border-[#181C24] select-none">
+        <div className="bg-[#111827]/80 px-4 py-3 flex items-center justify-between text-xs text-slate-400 border-b border-[#1e293b] select-none">
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F56] border border-[#E0443E]" />
             <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E] border border-[#DEA123]" />
@@ -105,7 +105,7 @@ export default function Terminal() {
           </div>
 
           {/* Prompt */}
-          <div className="flex items-center gap-2 pt-2 border-t border-[#181C24]/30 mt-4">
+          <div className="flex items-center gap-2 pt-2 border-t border-[#1e293b]/30 mt-4">
             <span className="text-electric-indigo font-bold whitespace-nowrap">fadhil@bash:~$</span>
             <input
               ref={inputRef}

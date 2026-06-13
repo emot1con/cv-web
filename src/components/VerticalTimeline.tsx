@@ -4,12 +4,12 @@ export default function VerticalTimeline() {
   return (
     <section
       id="how-i-work"
-      className="py-20 lg:py-32 border-t border-[#181C24] bg-[#0B0D10]/10 relative"
+      className="py-20 lg:py-32 border-t border-[#1e293b] bg-[#090e17]/10 relative"
     >
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#0B0D10] border border-[#181C24] rounded-full">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#090e17] border border-[#1e293b] rounded-full">
             <span className="text-xs font-semibold font-mono tracking-widest text-slate-400 uppercase">
               Process
             </span>
@@ -32,7 +32,7 @@ export default function VerticalTimeline() {
             >
               {/* Connector Dot */}
               <div className="absolute left-5 md:left-1/2 z-10 -translate-x-1/2">
-                <div className="w-10 h-10 rounded-full bg-[#0B0D10] border-2 border-electric-indigo flex items-center justify-center shadow-lg shadow-electric-indigo/20">
+                <div className="w-10 h-10 rounded-full bg-[#090e17] border-2 border-electric-indigo flex items-center justify-center shadow-lg shadow-electric-indigo/20">
                   <i className={`bx ${entry.icon} text-electric-indigo text-sm`} />
                 </div>
               </div>

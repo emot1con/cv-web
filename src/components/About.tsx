@@ -4,12 +4,12 @@ export default function About() {
   return (
     <section
       id="profile"
-      className="py-20 lg:py-32 border-t border-[#181C24] bg-[#0B0D10]/10 relative"
+      className="py-20 lg:py-32 border-t border-[#1e293b] bg-[#090e17]/10 relative"
     >
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#0B0D10] border border-[#181C24] rounded-full">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#090e17] border border-[#1e293b] rounded-full">
             <span className="text-xs font-semibold font-mono tracking-widest text-slate-400 uppercase">
               About Me
             </span>
@@ -25,7 +25,7 @@ export default function About() {
           <div className="lg:col-span-5 flex justify-center">
             <div className="relative w-64 h-64 md:w-80 md:h-80 group">
               <div className="absolute inset-0 bg-gradient-to-tr from-electric-indigo/10 to-transparent rounded-2xl filter blur-md" />
-              <div className="relative w-full h-full p-2 bg-[#0B0D10] border border-[#181C24] rounded-2xl shadow-xl">
+              <div className="relative w-full h-full p-2 bg-[#090e17] border border-[#1e293b] rounded-2xl shadow-xl">
                 <img
                   src="/img/self.webp"
                   alt="Profile"
@@ -33,7 +33,7 @@ export default function About() {
                   height="720"
                   className="w-full h-full object-cover rounded-xl grayscale opacity-75 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
                 />
-                <div className="absolute -top-3 -right-3 bg-[#11141B] border border-[#2A3040] text-white px-3 py-1.5 rounded-full text-xs font-mono font-medium shadow-lg flex items-center gap-1.5 select-none">
+                <div className="absolute -top-3 -right-3 bg-[#111827] border border-[#334155] text-white px-3 py-1.5 rounded-full text-xs font-mono font-medium shadow-lg flex items-center gap-1.5 select-none">
                   <span className="w-1.5 h-1.5 rounded-full bg-electric-emerald animate-pulse" />
                   <span>Available</span>
                 </div>
@@ -51,7 +51,7 @@ export default function About() {
               <div className="space-y-4 text-slate-300 text-base leading-relaxed">
                 <p>
                   My name is <span className="text-white font-semibold">Your Name</span>. I am an Informatics Engineering Student at{' '}
-                  <a href="#" className="text-white hover:text-electric-indigo underline decoration-[#2A3040] hover:decoration-electric-indigo transition-all">
+                  <a href="#" className="text-white hover:text-electric-indigo underline decoration-[#334155] hover:decoration-electric-indigo transition-all">
                     University
                   </a>
                   . I possess a continuous curiosity about cutting-edge technology and engineering systems.

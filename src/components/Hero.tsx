@@ -53,7 +53,7 @@ export default function Hero() {
           <div className="flex-1 text-center lg:text-left space-y-8 animate-fade-in-up">
             <div className="space-y-4">
               {/* Available Capsule */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#0B0D10] border border-[#181C24] rounded-full shadow-lg shadow-black/25">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#090e17] border border-[#1e293b] rounded-full shadow-lg shadow-black/25">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-electric-emerald opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-electric-emerald" />
@@ -85,7 +85,7 @@ export default function Hero() {
             </div>
 
             {/* Quote */}
-            <div className="relative border-l border-[#181C24] pl-6 py-1 italic text-slate-400 font-medium max-w-lg leading-relaxed">
+            <div className="relative border-l border-[#1e293b] pl-6 py-1 italic text-slate-400 font-medium max-w-lg leading-relaxed">
               "The technology you use impresses no one. The experience you create with it is everything."
               <span className="block text-xs font-mono font-bold tracking-widest uppercase text-slate-500 mt-2 not-italic">
                 — Sean Gerety
@@ -104,7 +104,7 @@ export default function Hero() {
               </a>
               <a
                 href="#contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#0B0D10] hover:bg-[#11141B] border border-[#181C24] hover:border-[#2A3040] text-slate-200 hover:text-white px-8 py-3.5 rounded-xl font-semibold transition-all duration-200"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#090e17] hover:bg-[#111827] border border-[#1e293b] hover:border-[#334155] text-slate-200 hover:text-white px-8 py-3.5 rounded-xl font-semibold transition-all duration-200"
               >
                 <span>Get In Touch</span>
                 <i className="bx bx-right-arrow-alt text-lg" />
@@ -112,12 +112,12 @@ export default function Hero() {
             </div>
 
             {/* Metrics */}
-            <div className="flex items-center gap-8 justify-center lg:justify-start pt-6 border-t border-[#181C24]/50">
+            <div className="flex items-center gap-8 justify-center lg:justify-start pt-6 border-t border-[#1e293b]/50">
               <div>
                 <div className="text-2xl font-bold text-white font-mono">20+</div>
                 <div className="text-xs text-slate-500 font-mono uppercase tracking-widest">Projects Completed</div>
               </div>
-              <div className="w-px h-8 bg-[#181C24]" />
+              <div className="w-px h-8 bg-[#1e293b]" />
               <div>
                 <div className="text-2xl font-bold text-white font-mono">3+</div>
                 <div className="text-xs text-slate-500 font-mono uppercase tracking-widest">Years Experience</div>

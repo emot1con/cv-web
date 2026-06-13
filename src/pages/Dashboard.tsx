@@ -57,7 +57,7 @@ export default function Dashboard() {
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           {/* Header */}
           <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#0B0D10] border border-[#181C24] rounded-full">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#090e17] border border-[#1e293b] rounded-full">
               <span className="text-xs font-semibold font-mono tracking-widest text-slate-400 uppercase">
                 System Telemetry
               </span>
@@ -71,7 +71,7 @@ export default function Dashboard() {
             {/* Profile Card */}
             <div className="lg:col-span-4 space-y-6">
               <SpotlightCard className="p-6 text-center space-y-4">
-                <div className="w-20 h-20 rounded-full bg-[#11141B] border border-[#181C24] flex items-center justify-center mx-auto">
+                <div className="w-20 h-20 rounded-full bg-[#111827] border border-[#1e293b] flex items-center justify-center mx-auto">
                   <i className="bx bx-user text-3xl text-slate-500" />
                 </div>
                 <div className="space-y-1">
@@ -109,21 +109,21 @@ export default function Dashboard() {
 
               {/* Status Cards */}
               <div className="space-y-3">
-                <div className="flex items-center justify-between px-4 py-3 bg-[#0B0D10] border border-[#181C24] rounded-lg">
+                <div className="flex items-center justify-between px-4 py-3 bg-[#090e17] border border-[#1e293b] rounded-lg">
                   <span className="text-xs font-mono text-slate-400">GitHub API Gateway</span>
                   <span className="flex items-center gap-1.5 text-xs font-mono text-electric-emerald">
                     <span className="w-1.5 h-1.5 rounded-full bg-electric-emerald" />
                     ONLINE [12ms]
                   </span>
                 </div>
-                <div className="flex items-center justify-between px-4 py-3 bg-[#0B0D10] border border-[#181C24] rounded-lg">
+                <div className="flex items-center justify-between px-4 py-3 bg-[#090e17] border border-[#1e293b] rounded-lg">
                   <span className="text-xs font-mono text-slate-400">WakaTime Sync Engine</span>
                   <span className="flex items-center gap-1.5 text-xs font-mono text-electric-emerald">
                     <span className="w-1.5 h-1.5 rounded-full bg-electric-emerald" />
                     ONLINE [54ms]
                   </span>
                 </div>
-                <div className="flex items-center justify-between px-4 py-3 bg-[#0B0D10] border border-[#181C24] rounded-lg">
+                <div className="flex items-center justify-between px-4 py-3 bg-[#090e17] border border-[#1e293b] rounded-lg">
                   <span className="text-xs font-mono text-slate-400">Telemetry Proxy</span>
                   <span className="flex items-center gap-1.5 text-xs font-mono text-electric-emerald">
                     <span className="w-1.5 h-1.5 rounded-full bg-electric-emerald" />
@@ -152,7 +152,7 @@ export default function Dashboard() {
                         </div>
                         <span className="font-mono text-slate-500">{lang.percentage}%</span>
                       </div>
-                      <div className="w-full h-1.5 bg-[#11141B] rounded-full overflow-hidden">
+                      <div className="w-full h-1.5 bg-[#111827] rounded-full overflow-hidden">
                         <div
                           className={`h-full rounded-full transition-all duration-1000 ${
                             lang.active
@@ -198,7 +198,7 @@ export default function Dashboard() {
                   <div className="text-3xl font-bold text-white font-mono">0.0h</div>
                   <div className="text-xs text-slate-500 font-mono mt-1">of 4.0h goal</div>
                 </div>
-                <div className="w-full h-2 bg-[#11141B] rounded-full overflow-hidden">
+                <div className="w-full h-2 bg-[#111827] rounded-full overflow-hidden">
                   <div className="w-0 h-full bg-gradient-to-r from-electric-indigo to-electric-cyan rounded-full transition-all duration-500" />
                 </div>
               </SpotlightCard>

@@ -11,12 +11,12 @@ export default function Projects() {
     <>
       <section
         id="project"
-        className="py-20 lg:py-32 border-t border-[#181C24] bg-[#0B0D10]/10 relative"
+        className="py-20 lg:py-32 border-t border-[#1e293b] bg-[#090e17]/10 relative"
       >
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           {/* Header */}
           <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#0B0D10] border border-[#181C24] rounded-full">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#090e17] border border-[#1e293b] rounded-full">
               <span className="text-xs font-semibold font-mono tracking-widest text-slate-400 uppercase">
                 My Work
               </span>
@@ -36,7 +36,7 @@ export default function Projects() {
                   className="p-6 space-y-4"
                 >
                   {/* Image */}
-                  <div className="aspect-video bg-[#11141B] rounded-lg overflow-hidden border border-[#181C24] flex items-center justify-center">
+                  <div className="aspect-video bg-[#111827] rounded-lg overflow-hidden border border-[#1e293b] flex items-center justify-center">
                     <i className="bx bx-code-alt text-3xl text-slate-600" />
                   </div>
 
@@ -56,7 +56,7 @@ export default function Projects() {
                     {project.techStack.slice(0, 3).map((tech) => (
                       <span
                         key={tech}
-                        className="text-[10px] font-mono font-semibold px-2 py-0.5 bg-[#11141B] border border-[#181C24] rounded text-slate-400"
+                        className="text-[10px] font-mono font-semibold px-2 py-0.5 bg-[#111827] border border-[#1e293b] rounded text-slate-400"
                       >
                         {tech}
                       </span>

@@ -5,12 +5,12 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="py-20 lg:py-32 border-t border-[#181C24] bg-[#050607] relative"
+      className="py-20 lg:py-32 border-t border-[#1e293b] bg-[#02050a] relative"
     >
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#0B0D10] border border-[#181C24] rounded-full">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#090e17] border border-[#1e293b] rounded-full">
             <span className="text-xs font-semibold font-mono tracking-widest text-slate-400 uppercase">
               Expertise
             </span>
@@ -25,7 +25,7 @@ export default function Skills() {
           {skillCategories.map((cat) => (
             <SpotlightCard key={cat.title} className="p-6 space-y-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-[#11141B] border border-[#181C24] flex items-center justify-center text-white">
+                <div className="w-10 h-10 rounded-lg bg-[#111827] border border-[#1e293b] flex items-center justify-center text-white">
                   <i className={`bx ${cat.icon} text-lg`} />
                 </div>
                 <h3 className="text-base font-semibold text-white">{cat.title}</h3>

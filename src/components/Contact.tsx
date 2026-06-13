@@ -13,12 +13,12 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-20 lg:py-32 border-t border-[#181C24] bg-[#050607] relative"
+      className="py-20 lg:py-32 border-t border-[#1e293b] bg-[#02050a] relative"
     >
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#0B0D10] border border-[#181C24] rounded-full">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#090e17] border border-[#1e293b] rounded-full">
             <span className="text-xs font-semibold font-mono tracking-widest text-slate-400 uppercase">
               Let's Connect
             </span>
@@ -44,7 +44,7 @@ export default function Contact() {
               href="https://wa.me/6281369051268"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-[#0B0D10] hover:bg-[#11141B] border border-[#181C24] hover:border-slate-400 text-slate-200 px-6 py-3 rounded-lg font-medium transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2 bg-[#090e17] hover:bg-[#111827] border border-[#1e293b] hover:border-slate-400 text-slate-200 px-6 py-3 rounded-lg font-medium transition-all duration-200"
             >
               <i className="bx bxl-whatsapp text-lg text-electric-emerald" />
               <span>WhatsApp Direct</span>

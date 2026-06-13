@@ -92,11 +92,11 @@ export default function CommandPalette() {
       {/* Floating FAB */}
       <button
         onClick={() => setOpen(true)}
-        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[90] flex items-center justify-center gap-2.5 p-3.5 sm:px-4 sm:py-3 bg-[#0B0D10]/95 backdrop-blur-md border border-[#181C24] hover:border-electric-indigo/40 rounded-full shadow-lg shadow-black/40 text-slate-400 hover:text-white transition-all duration-300 hover:scale-105 active:scale-95 text-xs font-semibold select-none"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[90] flex items-center justify-center gap-2.5 p-3.5 sm:px-4 sm:py-3 bg-[#090e17]/95 backdrop-blur-md border border-[#1e293b] hover:border-electric-indigo/40 rounded-full shadow-lg shadow-black/40 text-slate-400 hover:text-white transition-all duration-300 hover:scale-105 active:scale-95 text-xs font-semibold select-none"
       >
         <i className="bx bx-terminal text-xl sm:text-sm text-electric-indigo" />
         <span className="hidden sm:inline">Command Center</span>
-        <kbd className="hidden sm:inline-block px-1.5 py-0.5 font-mono text-[9px] text-slate-400 bg-[#050607] border border-[#181C24] rounded">
+        <kbd className="hidden sm:inline-block px-1.5 py-0.5 font-mono text-[9px] text-slate-400 bg-[#02050a] border border-[#1e293b] rounded">
           Ctrl+K
         </kbd>
       </button>
@@ -109,9 +109,9 @@ export default function CommandPalette() {
         }}
       >
         {/* Palette Box */}
-        <div className="w-full max-w-lg bg-[#0B0D10]/95 border border-[#181C24] rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[450px] animate-fade-in-down">
+        <div className="w-full max-w-lg bg-[#090e17]/95 border border-[#1e293b] rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[450px] animate-fade-in-down">
           {/* Search */}
-          <div className="flex items-center gap-3 px-4 py-3.5 border-b border-[#181C24]/50 bg-[#11141B]/40">
+          <div className="flex items-center gap-3 px-4 py-3.5 border-b border-[#1e293b]/50 bg-[#111827]/40">
             <i className="bx bx-search text-slate-500 text-lg" />
             <input
               ref={inputRef}
@@ -123,7 +123,7 @@ export default function CommandPalette() {
               autoComplete="off"
               spellCheck="false"
             />
-            <kbd className="hidden sm:inline-block px-1.5 py-0.5 font-mono text-[10px] text-slate-400 bg-[#0B0D10] border border-[#181C24] rounded">
+            <kbd className="hidden sm:inline-block px-1.5 py-0.5 font-mono text-[10px] text-slate-400 bg-[#090e17] border border-[#1e293b] rounded">
               ESC
             </kbd>
           </div>
@@ -142,7 +142,7 @@ export default function CommandPalette() {
                   className={`flex items-center justify-between px-3 py-2.5 rounded-lg border text-xs font-semibold cursor-pointer transition-all duration-150 ${
                     idx === selectedIndex
                       ? 'bg-electric-indigo/10 border-electric-indigo/35 text-white'
-                      : 'border-transparent text-slate-400 hover:text-white hover:bg-[#0B0D10]/60'
+                      : 'border-transparent text-slate-400 hover:text-white hover:bg-[#090e17]/60'
                   }`}
                 >
                   <div className="flex items-center gap-3">
@@ -154,8 +154,8 @@ export default function CommandPalette() {
                     <span>{item.title}</span>
                   </div>
                   <span
-                    className={`text-[9px] font-mono tracking-widest uppercase bg-[#0B0D10] px-1.5 py-0.5 rounded border ${
-                      CATEGORY_COLORS[item.category] || 'text-slate-500 border-[#181C24]'
+                    className={`text-[9px] font-mono tracking-widest uppercase bg-[#090e17] px-1.5 py-0.5 rounded border ${
+                      CATEGORY_COLORS[item.category] || 'text-slate-500 border-[#1e293b]'
                     }`}
                   >
                     {item.category}
@@ -166,7 +166,7 @@ export default function CommandPalette() {
           </div>
 
           {/* Footer */}
-          <div className="px-4 py-2 bg-[#11141B]/20 border-t border-[#181C24]/30 flex items-center justify-between text-[10px] text-slate-500 font-mono">
+          <div className="px-4 py-2 bg-[#111827]/20 border-t border-[#1e293b]/30 flex items-center justify-between text-[10px] text-slate-500 font-mono">
             <div className="flex items-center gap-3">
               <span>↑↓ Navigate</span>
               <span>↵ Select</span>
