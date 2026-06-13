@@ -25,54 +25,40 @@ export default function VerticalTimeline() {
           {/* Vertical Line */}
           <div className="absolute left-5 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-electric-indigo/40 via-electric-cyan/20 to-transparent md:-translate-x-px" />
 
-          {howIWork.map((entry) => {
-
-            return (
-              <div
-                key={entry.id}
-                className="relative flex items-start mb-12 last:mb-0 md:even:flex-row-reverse"
-              >
-                {/* Connector Dot */}
-                <div className="absolute left-5 md:left-1/2 z-10 -translate-x-1/2">
-                  <div className="w-10 h-10 rounded-full bg-[#0B0D10] border-2 border-electric-indigo flex items-center justify-center shadow-lg shadow-electric-indigo/20">
-                    <i className={`bx ${entry.icon} text-electric-indigo text-sm`} />
-                  </div>
-                </div>
-
-                {/* Spacer for desktop alignment */}
-                <div className="hidden md:block w-1/2" />
-
-                {/* Content Card */}
-                <div className="ml-16 md:ml-0 md:w-1/2 md:px-8">
-                  <div className="spotlight-card group p-5 md:p-6">
-                    <div className="spotlight-glow -top-32 -left-32 group-hover:opacity-100 transition-opacity" />
-                    <div className="relative z-10 space-y-3">
-                      {/* Step badge + Title */}
-                      <div className="flex items-center gap-3">
-                        <span className="text-[10px] font-bold font-mono tracking-widest text-electric-indigo uppercase">
-                          {entry.step}
-                        </span>
-                      </div>
-                      <h3 className="text-base font-bold text-white">{entry.title}</h3>
-
-                      <p className="text-sm text-slate-400 leading-relaxed">
-                        {entry.description}
-                      </p>
-
-                      <ul className="space-y-1.5 pt-1">
-                        {entry.details.map((detail, i) => (
-                          <li key={i} className="flex items-start gap-2 text-xs text-slate-500">
-                            <i className="bx bx-chevron-right text-electric-indigo text-sm mt-0.5 shrink-0" />
-                            <span>{detail}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
+          {howIWork.map((entry) => (
+            <div
+              key={entry.id}
+              className="relative flex items-start mb-12 last:mb-0 md:even:flex-row-reverse"
+            >
+              {/* Connector Dot */}
+              <div className="absolute left-5 md:left-1/2 z-10 -translate-x-1/2">
+                <div className="w-10 h-10 rounded-full bg-[#0B0D10] border-2 border-electric-indigo flex items-center justify-center shadow-lg shadow-electric-indigo/20">
+                  <i className={`bx ${entry.icon} text-electric-indigo text-sm`} />
                 </div>
               </div>
-            );
-          })}
+
+              {/* Spacer for desktop alignment */}
+              <div className="hidden md:block w-1/2" />
+
+              {/* Content — no border card */}
+              <div className="ml-16 md:ml-0 md:w-1/2 md:px-8">
+                <div className="space-y-2">
+                  {/* Step */}
+                  <span className="text-[10px] font-bold font-mono tracking-widest text-electric-indigo uppercase">
+                    {entry.step}
+                  </span>
+                  {/* Title */}
+                  <h3 className="text-base font-bold text-white">
+                    {entry.title}
+                  </h3>
+                  {/* Description — separate line */}
+                  <p className="text-sm text-slate-400 leading-relaxed">
+                    {entry.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
