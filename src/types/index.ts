@@ -49,3 +49,12 @@ export interface CommandItem {
   icon: string;
   isExternal?: boolean;
 }
+
+export interface TimelineEntry {
+  id: number;
+  step: string;
+  title: string;
+  description: string;
+  details: string[];
+  icon: string;
+}
