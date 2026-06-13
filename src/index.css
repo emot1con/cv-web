@@ -1,0 +1,175 @@
+@import "tailwindcss";
+
+/* ─── Custom Theme ─── */
+@theme {
+  --color-obsidian-bg: #050607;
+  --color-obsidian-surface: #0B0D10;
+  --color-obsidian-elevated: #11141B;
+  --color-obsidian-border: #181C24;
+  --color-obsidian-border-active: #2A3040;
+
+  --color-electric-indigo: #6366F1;
+  --color-electric-cyan: #22D3EE;
+  --color-electric-emerald: #34D399;
+
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* ─── Light Theme Overrides ─── */
+html.light {
+  --color-obsidian-bg: #F8F9FC;
+  --color-obsidian-surface: #FFFFFF;
+  --color-obsidian-elevated: #F1F3F8;
+  --color-obsidian-border: #E2E5ED;
+  --color-obsidian-border-active: #C8CCD9;
+}
+
+/* ─── Base Styles ─── */
+body {
+  background-color: var(--color-obsidian-bg);
+  color: #94A3B8;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Dotted Grid Background ─── */
+.dotted-grid {
+  background-image: radial-gradient(rgba(99, 102, 241, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* ─── Hero Grid Pattern ─── */
+.hero-grid-pattern {
+  background-image:
+    linear-gradient(rgba(24, 28, 36, 0.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(24, 28, 36, 0.5) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* ─── Animations ─── */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in-down {
+  from { opacity: 0; transform: translateY(-24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slow-pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.7s ease-out forwards;
+}
+
+.animate-fade-in-down {
+  animation: fade-in-down 0.7s ease-out forwards;
+}
+
+.animate-slow-pulse {
+  animation: slow-pulse 4s ease-in-out infinite;
+}
+
+/* ─── Dark Input Fields ─── */
+.dark-input {
+  width: 100%;
+  background-color: var(--color-obsidian-elevated);
+  border: 1px solid var(--color-obsidian-border);
+  color: #E2E8F0;
+  padding: 0.625rem 0.875rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.dark-input::placeholder {
+  color: #475569;
+}
+
+.dark-input:focus {
+  border-color: var(--color-electric-indigo);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.15);
+}
+
+/* ─── Tech Badge ─── */
+.tech-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  background-color: var(--color-obsidian-elevated);
+  border: 1px solid var(--color-obsidian-border);
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #94A3B8;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.tech-badge:hover {
+  border-color: var(--color-electric-indigo);
+  color: #E2E8F0;
+}
+
+/* ─── Spotlight Card ─── */
+.spotlight-card {
+  position: relative;
+  background-color: var(--color-obsidian-surface);
+  border: 1px solid var(--color-obsidian-border);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.spotlight-glow {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.08), transparent 60%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* ─── Custom Scrollbar ─── */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: var(--color-obsidian-border-active);
+  border-radius: 2px;
+}
+
+/* ─── Dark input for light mode ─── */
+html.light .dark-input {
+  background-color: #F1F3F8;
+  border-color: #E2E5ED;
+  color: #1E293B;
+}
+html.light .dark-input::placeholder {
+  color: #94A3B8;
+}
+html.light .dark-input:focus {
+  border-color: var(--color-electric-indigo);
+}
+
+html.light .tech-badge {
+  background-color: #F1F3F8;
+  border-color: #E2E5ED;
+  color: #64748B;
+}
+
+html.light .spotlight-card {
+  background-color: #FFFFFF;
+  border-color: #E2E5ED;
+}

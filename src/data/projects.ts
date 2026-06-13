@@ -1,0 +1,55 @@
+import type { Project } from '../types';
+
+export const projects: Project[] = [
+  {
+    id: 1,
+    title: 'Project One',
+    shortDesc: 'A brief description of your first featured project.',
+    longDesc: 'Detailed overview of this project. Explain the problem it solves, your approach, and the outcome. This is where you showcase your engineering thinking and the impact of your work.',
+    image: '/img/placeholder-project.jpg',
+    techStack: ['React', 'TypeScript', 'Tailwind CSS', 'Node.js'],
+    features: [
+      'Feature one with key implementation detail',
+      'Feature two highlighting a technical challenge solved',
+      'Feature three showing user-facing impact',
+      'Feature four — performance or architecture win',
+    ],
+    githubUrl: 'https://github.com/yourusername/project',
+    date: 'Jan 2025',
+    role: 'Full Stack Developer',
+  },
+  {
+    id: 2,
+    title: 'Project Two',
+    shortDesc: 'Another project showcasing your range of skills.',
+    longDesc: 'Expand on the architecture, the tech decisions made, and why certain approaches were chosen over alternatives.',
+    image: '/img/placeholder-project.jpg',
+    techStack: ['Next.js', 'PostgreSQL', 'Prisma', 'Docker'],
+    features: [
+      'Real-time data synchronization',
+      'Optimized database queries (100ms → 15ms)',
+      'CI/CD pipeline with automated testing',
+      'Responsive design across all devices',
+    ],
+    githubUrl: 'https://github.com/yourusername/project-two',
+    date: 'Mar 2025',
+    role: 'Backend Developer',
+  },
+  {
+    id: 3,
+    title: 'Project Three',
+    shortDesc: 'A mobile or cross-platform project demonstrating versatility.',
+    longDesc: 'Discuss cross-platform challenges, state management, and how you delivered a native-like experience.',
+    image: '/img/placeholder-project.jpg',
+    techStack: ['Flutter', 'Dart', 'Firebase', 'REST API'],
+    features: [
+      'Cross-platform (Android & iOS) from one codebase',
+      'Offline-first architecture',
+      'Push notifications with deep linking',
+      'Biometric authentication integration',
+    ],
+    githubUrl: 'https://github.com/yourusername/project-three',
+    date: 'Jun 2025',
+    role: 'Mobile Developer',
+  },
+];
