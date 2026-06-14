@@ -17,15 +17,15 @@ export function useTypewriter({
 }: TypewriterOptions) {
   const [displayText, setDisplayText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
+  const [isDeleting, setIsDeleting] = useState(false);
   const stringIndex = useRef(0);
   const charIndex = useRef(0);
-  const isDeleting = useRef(false);
 
   useEffect(() => {
     const currentString = strings[stringIndex.current];
 
     const timeout = setTimeout(() => {
-      if (!isDeleting.current) {
+      if (!isDeleting) {
         // Typing
         if (charIndex.current < currentString.length) {
           charIndex.current++;
@@ -33,9 +33,8 @@ export function useTypewriter({
         } else {
           // Done typing, wait then delete
           setTimeout(() => {
-            isDeleting.current = true;
+            setIsDeleting(true);
           }, backDelay);
-          return;
         }
       } else {
         // Deleting
@@ -44,15 +43,15 @@ export function useTypewriter({
           setDisplayText(currentString.slice(0, charIndex.current));
         } else {
           // Done deleting, move to next string
-          isDeleting.current = false;
+          setIsDeleting(false);
           stringIndex.current = (stringIndex.current + 1) % strings.length;
           if (!loop && stringIndex.current === 0) return;
         }
       }
-    }, isDeleting.current ? backSpeed : typeSpeed);
+    }, isDeleting ? backSpeed : typeSpeed);
 
     return () => clearTimeout(timeout);
-  }, [displayText, strings, typeSpeed, backSpeed, backDelay, loop]);
+  }, [displayText, isDeleting, strings, typeSpeed, backSpeed, backDelay, loop]);
 
   // Cursor blink
   useEffect(() => {

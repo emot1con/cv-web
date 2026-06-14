@@ -3,12 +3,8 @@ import Terminal from './Terminal';
 import { useTypewriter } from '../hooks/useTypewriter';
 
 const ROLES = [
-  'Software Developer',
-  'Front End Developer',
-  'Back End Developer',
-  'Mobile Developer',
-  'IT Enthusiast',
-  'Cloud Engineer',
+  'Software Engineer',
+  'Backend Engineer'
 ];
 
 export default function Hero() {
@@ -66,7 +62,7 @@ export default function Hero() {
               <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tighter text-white leading-tight">
                 Hello, I'm
                 <span className="block bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent mt-2">
-                  Your Name
+                  Arqan Purusa Eryan
                 </span>
               </h1>
             </div>
