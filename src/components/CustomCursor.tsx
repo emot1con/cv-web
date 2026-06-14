@@ -111,7 +111,7 @@ export default function CustomCursor() {
         }}
       >
         <motion.div
-          className="rounded-full bg-text-primary mix-blend-difference"
+          className="rounded-full bg-white mix-blend-difference"
           animate={{
             width: isHovering ? 8 : 5,
             height: isHovering ? 8 : 5,

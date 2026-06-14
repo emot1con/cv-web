@@ -59,6 +59,14 @@ body {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  cursor: none;
+}
+
+/* Retain default pointer for touch devices */
+@media (pointer: coarse) {
+  body {
+    cursor: auto;
+  }
 }
 
 /* ─── Selection ─── */

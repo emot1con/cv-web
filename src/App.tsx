@@ -8,6 +8,7 @@ import CommandPalette from './components/CommandPalette';
 import Preloader from './components/Preloader';
 import BackToTop from './components/BackToTop';
 import PageTransition from './components/PageTransition';
+import CustomCursor from './components/CustomCursor';
 import Home from './pages/Home';
 
 // Lazy load secondary pages
@@ -78,6 +79,7 @@ export default function App() {
       <BrowserRouter>
         <Preloader />
         <div className="min-h-screen relative">
+          <CustomCursor />
           <Navbar />
           <AnimatedRoutes />
           <Footer />
