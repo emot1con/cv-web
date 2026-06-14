@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { certificates } from '../data/certificates';
 import { experiences } from '../data/experience';
 import Projects from '../components/Projects';
+import GithubHistory from '../components/GithubHistory';
 import SpotlightCard from '../components/SpotlightCard';
 import { fadeInUp, staggerContainer, scaleIn } from '../lib/animations';
 
@@ -10,6 +11,9 @@ export default function ProjectsPage() {
     <main className="pt-28 lg:pt-36 pb-20 overflow-hidden">
       {/* Projects Section */}
       <Projects />
+
+      {/* GitHub Contributions */}
+      <GithubHistory />
 
       {/* Certifications Section */}
       <section className="py-20 lg:py-32 relative">

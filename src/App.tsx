@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { ThemeProvider } from './hooks/useTheme';
@@ -74,6 +74,17 @@ function AnimatedRoutes() {
 }
 
 export default function App() {
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+      document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+
   return (
     <ThemeProvider>
       <BrowserRouter>
@@ -82,6 +93,15 @@ export default function App() {
           {/* Global Grid Background */}
           <div className="fixed inset-0 neo-grid-pattern pointer-events-none z-[-1]" />
           <div className="fixed inset-0 neo-dotted-grid pointer-events-none z-[-1]" />
+          
+          {/* Global Spotlight Follower */}
+          <div
+            className="fixed inset-0 pointer-events-none z-[-1] opacity-100 transition-opacity duration-300"
+            style={{
+              background: `radial-gradient(600px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), var(--color-neo-spotlight), transparent 80%)`,
+            }}
+          />
+
           <CustomCursor />
           <Navbar />
           <AnimatedRoutes />

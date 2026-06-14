@@ -25,6 +25,7 @@
   
   --color-neo-grid-line: rgba(255, 255, 255, 0.04);
   --color-neo-grid-dot: rgba(255, 255, 255, 0.08);
+  --color-neo-spotlight: rgba(233, 69, 96, 0.07);
 
   --font-heading: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
@@ -52,6 +53,7 @@ html.light {
   
   --color-neo-grid-line: rgba(0, 0, 0, 0.04);
   --color-neo-grid-dot: rgba(0, 0, 0, 0.08);
+  --color-neo-spotlight: rgba(255, 255, 255, 0.5);
 }
 
 /* ─── Base Styles ─── */
