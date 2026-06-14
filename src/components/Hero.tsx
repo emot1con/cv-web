@@ -37,8 +37,7 @@ export default function Hero() {
       {/* Grid Background */}
       <div className="absolute inset-0 hero-grid-pattern pointer-events-none z-0" />
 
-      {/* Noise Texture Overlay */}
-      <div className="absolute inset-0 noise-overlay pointer-events-none z-0" />
+
 
       {/* Spotlight */}
       <div

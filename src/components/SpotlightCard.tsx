@@ -21,16 +21,33 @@ export default function SpotlightCard({ children, className = '' }: SpotlightCar
         glow.style.left = `${x}px`;
         glow.style.top = `${y}px`;
       }
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -3;
+      const rotateY = ((x - centerX) / centerX) * 3;
+
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
+      card.style.transition = 'transform 0.1s ease-out';
+    };
+
+    const handleMouseLeave = () => {
+      card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+      card.style.transition = 'transform 0.5s ease-out';
     };
 
     card.addEventListener('mousemove', handleMouseMove);
-    return () => card.removeEventListener('mousemove', handleMouseMove);
+    card.addEventListener('mouseleave', handleMouseLeave);
+    return () => {
+      card.removeEventListener('mousemove', handleMouseMove);
+      card.removeEventListener('mouseleave', handleMouseLeave);
+    };
   }, []);
 
   return (
-    <div ref={cardRef} className={`spotlight-card group ${className}`}>
+    <div ref={cardRef} className={`spotlight-card group ${className} h-full`} style={{ willChange: 'transform' }}>
       <div className="spotlight-glow -top-32 -left-32 group-hover:opacity-100 transition-opacity" />
-      <div className="relative z-10">{children}</div>
+      <div className="relative z-10 h-full">{children}</div>
     </div>
   );
 }

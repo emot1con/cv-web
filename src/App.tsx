@@ -77,7 +77,8 @@ export default function App() {
       <BrowserRouter>
         <Preloader />
         <CustomCursor />
-        <div className="dotted-grid min-h-screen">
+        <div className="dotted-grid min-h-screen relative">
+          <div className="fixed inset-0 noise-overlay pointer-events-none z-[9999]" />
           <Navbar />
           <AnimatedRoutes />
           <Footer />
