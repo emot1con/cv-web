@@ -12,7 +12,7 @@ import PageTransition from './components/PageTransition';
 import Home from './pages/Home';
 
 // Lazy load secondary pages
-const Certificates = lazy(() => import('./pages/Certificates'));
+const ProjectsPage = lazy(() => import('./pages/ProjectsPage'));
 
 const NotFound = lazy(() => import('./pages/NotFound'));
 
@@ -50,10 +50,10 @@ function AnimatedRoutes() {
             }
           />
           <Route
-            path="/certificates"
+            path="/projects"
             element={
               <PageTransition>
-                <Certificates />
+                <ProjectsPage />
               </PageTransition>
             }
           />

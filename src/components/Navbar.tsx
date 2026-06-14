@@ -23,9 +23,8 @@ export default function Navbar() {
     { label: 'Home', href: '/#home', active: location.pathname === '/' },
     { label: 'About', href: isHome ? '#profile' : '/#profile' },
     { label: 'Skills', href: isHome ? '#skills' : '/#skills' },
-    { label: 'Projects', href: isHome ? '#project' : '/#project' },
     { label: 'Contact', href: isHome ? '#contact' : '/#contact' },
-    { label: 'Certificates', href: '/certificates' },
+    { label: 'Projects', href: '/projects' },
   ];
 
   const handleNavClick = (href: string) => {

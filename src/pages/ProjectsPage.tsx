@@ -1,12 +1,16 @@
 import { motion } from 'framer-motion';
 import { certificates } from '../data/certificates';
 import { experiences } from '../data/experience';
+import Projects from '../components/Projects';
 import SpotlightCard from '../components/SpotlightCard';
 import { fadeInUp, staggerContainer, scaleIn } from '../lib/animations';
 
-export default function Certificates() {
+export default function ProjectsPage() {
   return (
     <main className="pt-28 lg:pt-36 pb-20 overflow-hidden">
+      {/* Projects Section */}
+      <Projects />
+
       {/* Certifications Section */}
       <section className="py-20 lg:py-32 relative">
         <motion.div
