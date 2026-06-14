@@ -79,6 +79,9 @@ export default function App() {
       <BrowserRouter>
         <Preloader />
         <div className="min-h-screen relative">
+          {/* Global Grid Background */}
+          <div className="fixed inset-0 neo-grid-pattern pointer-events-none z-[-1]" />
+          <div className="fixed inset-0 neo-dotted-grid pointer-events-none z-[-1]" />
           <CustomCursor />
           <Navbar />
           <AnimatedRoutes />

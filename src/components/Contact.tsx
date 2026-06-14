@@ -15,7 +15,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-20 lg:py-32 border-t-3 border-neo-border bg-neo-bg relative overflow-hidden"
+      className="py-20 lg:py-32 border-t-3 border-neo-border relative overflow-hidden"
     >
       <motion.div
         className="container mx-auto px-4 lg:px-8 relative z-10"

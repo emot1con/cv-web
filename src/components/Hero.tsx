@@ -7,7 +7,9 @@ import { fadeInUp, staggerContainer } from '../lib/animations';
 
 const ROLES = [
   'Software Engineer',
-  'Backend Engineer'
+  'Backend Engineer',
+  'Cloud Engineer',
+  'DevOps Engineer'
 ];
 
 export default function Hero() {

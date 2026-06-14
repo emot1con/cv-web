@@ -22,6 +22,9 @@
   --color-neo-success: #4ade80;
 
   --color-neo-shadow: #000000;
+  
+  --color-neo-grid-line: rgba(255, 255, 255, 0.04);
+  --color-neo-grid-dot: rgba(255, 255, 255, 0.08);
 
   --font-heading: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
@@ -38,14 +41,17 @@ html.light {
 
   --color-neo-text-primary: #1a1a2e;
   --color-neo-text-secondary: #374151;
-  --color-neo-text-muted: #6b7280;
+  --color-neo-text-muted: #4b5563;
 
-  --color-neo-accent: #e94560;
+  --color-neo-accent: #d90429;
   --color-neo-accent-secondary: #f5c518;
-  --color-neo-accent-tertiary: #0077b6;
-  --color-neo-success: #22c55e;
+  --color-neo-accent-tertiary: #028090;
+  --color-neo-success: #16a34a;
 
   --color-neo-shadow: #1a1a2e;
+  
+  --color-neo-grid-line: rgba(0, 0, 0, 0.04);
+  --color-neo-grid-dot: rgba(0, 0, 0, 0.08);
 }
 
 /* ─── Base Styles ─── */
@@ -83,6 +89,19 @@ body {
 /* ═══════════════════════════════════════
    NEO COMPONENT UTILITIES
    ═══════════════════════════════════════ */
+
+/* ─── Neobrutalism Grid Pattern ─── */
+.neo-grid-pattern {
+  background-image:
+    linear-gradient(var(--color-neo-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-neo-grid-line) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.neo-dotted-grid {
+  background-image: radial-gradient(var(--color-neo-grid-dot) 1.5px, transparent 1.5px);
+  background-size: 32px 32px;
+}
 
 /* ─── Neo Card ─── */
 .neo-card {
