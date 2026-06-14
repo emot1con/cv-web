@@ -9,7 +9,6 @@ const items: CommandItem[] = [
   { title: 'Jump to Featured Projects', category: 'Navigation', href: '/#project', icon: 'bx-briefcase' },
   { title: 'Jump to Contact Form', category: 'Navigation', href: '/#contact', icon: 'bx-mail-send' },
   { title: 'Go to Certifications Portal', category: 'Sub-Portal', href: '/certificates', icon: 'bx-medal' },
-  { title: 'Go to Live Developer Dashboard', category: 'Sub-Portal', href: '/dashboard', icon: 'bx-grid-alt' },
   { title: 'Direct WhatsApp Message', category: 'External', href: 'https://wa.me/6281369051268', icon: 'bxl-whatsapp', isExternal: true },
   { title: 'Send direct Email', category: 'External', href: 'mailto:youremail@gmail.com', icon: 'bx-envelope', isExternal: true },
   { title: 'Review LinkedIn Profile', category: 'External', href: 'https://linkedin.com/in/yourusername', icon: 'bxl-linkedin', isExternal: true },

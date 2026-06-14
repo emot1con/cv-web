@@ -63,13 +63,6 @@ export default function NotFound() {
               <i className="bx bx-home text-base" />
               <span>Back to Home</span>
             </Link>
-            <Link
-              to="/dashboard"
-              className="inline-flex items-center justify-center gap-2 bg-obsidian-surface hover:bg-obsidian-elevated border border-obsidian-border hover:border-obsidian-border-active text-text-primary hover:text-text-primary px-6 py-3 rounded-xl font-semibold transition-all duration-200 text-sm"
-            >
-              <span>Dashboard</span>
-              <i className="bx bx-right-arrow-alt text-base" />
-            </Link>
           </div>
 
           {/* Keyboard shortcut hint */}

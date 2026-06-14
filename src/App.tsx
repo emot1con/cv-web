@@ -13,7 +13,7 @@ import Home from './pages/Home';
 
 // Lazy load secondary pages
 const Certificates = lazy(() => import('./pages/Certificates'));
-const Dashboard = lazy(() => import('./pages/Dashboard'));
+
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 function AnimatedRoutes() {
@@ -54,14 +54,6 @@ function AnimatedRoutes() {
             element={
               <PageTransition>
                 <Certificates />
-              </PageTransition>
-            }
-          />
-          <Route
-            path="/dashboard"
-            element={
-              <PageTransition>
-                <Dashboard />
               </PageTransition>
             }
           />

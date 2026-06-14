@@ -26,7 +26,6 @@ export default function Navbar() {
     { label: 'Projects', href: isHome ? '#project' : '/#project' },
     { label: 'Contact', href: isHome ? '#contact' : '/#contact' },
     { label: 'Certificates', href: '/certificates' },
-    { label: 'Dashboard', href: '/dashboard' },
   ];
 
   const handleNavClick = (href: string) => {
