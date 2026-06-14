@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import Terminal from './Terminal';
 import { useTypewriter } from '../hooks/useTypewriter';
+import { fadeInUp, staggerContainer } from '../lib/animations';
 
 const ROLES = [
   'Software Engineer',
@@ -44,9 +46,14 @@ export default function Hero() {
       <div className="absolute w-[400px] h-[400px] rounded-full bg-electric-cyan/5 filter blur-[100px] bottom-12 right-1/4 animate-slow-pulse pointer-events-none z-0" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-20">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          animate="visible"
+          className="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-20"
+        >
           {/* Text Segment */}
-          <div className="flex-1 text-center lg:text-left space-y-8 animate-fade-in-up">
+          <motion.div variants={fadeInUp} className="flex-1 text-center lg:text-left space-y-8">
             <div className="space-y-4">
               {/* Available Capsule */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#090e17] border border-[#1e293b] rounded-full shadow-lg shadow-black/25">
@@ -119,13 +126,13 @@ export default function Hero() {
                 <div className="text-xs text-slate-500 font-mono uppercase tracking-widest">Years Experience</div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Terminal */}
-          <div className="flex-1 flex justify-center lg:justify-end animate-fade-in-down">
+          <motion.div variants={fadeInUp} className="flex-1 flex justify-center lg:justify-end">
             <Terminal />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

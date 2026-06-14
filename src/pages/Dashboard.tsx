@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import SpotlightCard from '../components/SpotlightCard';
+import { fadeInUp, staggerContainer, slideInLeft, slideInRight } from '../lib/animations';
 
 interface GitHubStats {
   repos: number;
@@ -52,11 +54,16 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <main className="pt-28 lg:pt-36 pb-20">
+    <main className="pt-28 lg:pt-36 pb-20 overflow-hidden">
       <section className="py-20 lg:py-32 relative">
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        <motion.div
+          className="container mx-auto px-4 lg:px-8 relative z-10"
+          variants={staggerContainer}
+          initial="hidden"
+          animate="visible"
+        >
           {/* Header */}
-          <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
+          <motion.div className="max-w-3xl mx-auto text-center mb-16 space-y-4" variants={fadeInUp}>
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#090e17] border border-[#1e293b] rounded-full">
               <span className="text-xs font-semibold font-mono tracking-widest text-slate-400 uppercase">
                 System Telemetry
@@ -65,11 +72,11 @@ export default function Dashboard() {
             <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-white">
               Real-time GitHub & WakaTime Telemetry
             </h2>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-5xl mx-auto">
             {/* Profile Card */}
-            <div className="lg:col-span-4 space-y-6">
+            <motion.div className="lg:col-span-4 space-y-6" variants={slideInLeft}>
               <SpotlightCard className="p-6 text-center space-y-4">
                 <div className="w-20 h-20 rounded-full bg-[#111827] border border-[#1e293b] flex items-center justify-center mx-auto">
                   <i className="bx bx-user text-3xl text-slate-500" />
@@ -131,10 +138,10 @@ export default function Dashboard() {
                   </span>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Right Column */}
-            <div className="lg:col-span-8 space-y-6">
+            <motion.div className="lg:col-span-8 space-y-6" variants={slideInRight}>
               {/* Top Languages */}
               <SpotlightCard className="p-6">
                 <h3 className="text-sm font-bold text-white mb-4 tracking-tight font-mono uppercase">
@@ -202,9 +209,9 @@ export default function Dashboard() {
                   <div className="w-0 h-full bg-gradient-to-r from-electric-indigo to-electric-cyan rounded-full transition-all duration-500" />
                 </div>
               </SpotlightCard>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </section>
     </main>
   );

@@ -1,14 +1,22 @@
+import { motion } from 'framer-motion';
 import SpotlightCard from './SpotlightCard';
+import { fadeInUp, staggerContainer, slideInLeft, slideInRight } from '../lib/animations';
 
 export default function About() {
   return (
     <section
       id="profile"
-      className="py-20 lg:py-32 border-t border-[#1e293b] bg-[#090e17]/10 relative"
+      className="py-20 lg:py-32 border-t border-[#1e293b] bg-[#090e17]/10 relative overflow-hidden"
     >
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+      <motion.div
+        className="container mx-auto px-4 lg:px-8 relative z-10"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+      >
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
+        <motion.div className="max-w-3xl mx-auto text-center mb-16 space-y-4" variants={fadeInUp}>
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#090e17] border border-[#1e293b] rounded-full">
             <span className="text-xs font-semibold font-mono tracking-widest text-slate-400 uppercase">
               About Me
@@ -18,11 +26,11 @@ export default function About() {
           <p className="text-sm text-slate-500 leading-relaxed font-mono uppercase tracking-widest">
             Student, Developer, Thinker
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Profile Image */}
-          <div className="lg:col-span-5 flex justify-center">
+          <motion.div className="lg:col-span-5 flex justify-center" variants={slideInLeft}>
             <div className="relative w-64 h-64 md:w-80 md:h-80 group">
               <div className="absolute inset-0 bg-gradient-to-tr from-electric-indigo/10 to-transparent rounded-2xl filter blur-md" />
               <div className="relative w-full h-full p-2 bg-[#090e17] border border-[#1e293b] rounded-2xl shadow-xl">
@@ -39,10 +47,10 @@ export default function About() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Description */}
-          <div className="lg:col-span-7 space-y-8">
+          <motion.div className="lg:col-span-7 space-y-8" variants={slideInRight}>
             <SpotlightCard className="p-8">
               <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-electric-indigo mb-4">
                 <i className="bx bx-terminal text-sm animate-pulse" />
@@ -85,9 +93,9 @@ export default function About() {
                 </SpotlightCard>
               </a>
             </div>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

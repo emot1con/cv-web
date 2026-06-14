@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import SpotlightCard from './SpotlightCard';
+import { fadeInUp, staggerContainer, slideInLeft, slideInRight } from '../lib/animations';
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -13,11 +15,17 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-20 lg:py-32 border-t border-[#1e293b] bg-[#02050a] relative"
+      className="py-20 lg:py-32 border-t border-[#1e293b] bg-[#02050a] relative overflow-hidden"
     >
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+      <motion.div
+        className="container mx-auto px-4 lg:px-8 relative z-10"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+      >
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
+        <motion.div className="max-w-3xl mx-auto text-center mb-16 space-y-4" variants={fadeInUp}>
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#090e17] border border-[#1e293b] rounded-full">
             <span className="text-xs font-semibold font-mono tracking-widest text-slate-400 uppercase">
               Let's Connect
@@ -27,11 +35,11 @@ export default function Contact() {
           <p className="text-sm text-slate-500 leading-relaxed font-mono uppercase tracking-widest">
             Available for new opportunities
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start max-w-5xl mx-auto">
           {/* Left Column */}
-          <div className="lg:col-span-5 space-y-6">
+          <motion.div className="lg:col-span-5 space-y-6" variants={slideInLeft}>
             <h3 className="text-xl font-bold text-white tracking-tight">
               Let's create something amazing together.
             </h3>
@@ -49,10 +57,10 @@ export default function Contact() {
               <i className="bx bxl-whatsapp text-lg text-electric-emerald" />
               <span>WhatsApp Direct</span>
             </a>
-          </div>
+          </motion.div>
 
           {/* Form Column */}
-          <div className="lg:col-span-7">
+          <motion.div className="lg:col-span-7" variants={slideInRight}>
             <SpotlightCard className="p-8">
               {!submitted ? (
                 <div className="space-y-6 relative z-10">
@@ -125,9 +133,9 @@ export default function Contact() {
                 </div>
               )}
             </SpotlightCard>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

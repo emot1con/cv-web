@@ -1,14 +1,22 @@
+import { motion } from 'framer-motion';
 import { howIWork } from '../data/timeline';
+import { fadeInUp, staggerContainer } from '../lib/animations';
 
 export default function VerticalTimeline() {
   return (
     <section
       id="how-i-work"
-      className="py-20 lg:py-32 border-t border-[#1e293b] bg-[#090e17]/10 relative"
+      className="py-20 lg:py-32 border-t border-[#1e293b] bg-[#090e17]/10 relative overflow-hidden"
     >
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+      <motion.div
+        className="container mx-auto px-4 lg:px-8 relative z-10"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+      >
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
+        <motion.div className="max-w-3xl mx-auto text-center mb-16 space-y-4" variants={fadeInUp}>
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#090e17] border border-[#1e293b] rounded-full">
             <span className="text-xs font-semibold font-mono tracking-widest text-slate-400 uppercase">
               Process
@@ -18,7 +26,7 @@ export default function VerticalTimeline() {
           <p className="text-sm text-slate-500 leading-relaxed font-mono uppercase tracking-widest">
             From idea to production — my engineering workflow
           </p>
-        </div>
+        </motion.div>
 
         {/* Timeline */}
         <div className="relative max-w-3xl mx-auto">
@@ -26,8 +34,12 @@ export default function VerticalTimeline() {
           <div className="absolute left-5 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-electric-indigo/40 via-electric-cyan/20 to-transparent md:-translate-x-px" />
 
           {howIWork.map((entry) => (
-            <div
+            <motion.div
               key={entry.id}
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
               className="relative flex items-start mb-12 last:mb-0 md:even:flex-row-reverse"
             >
               {/* Connector Dot */}
@@ -57,10 +69,10 @@ export default function VerticalTimeline() {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
