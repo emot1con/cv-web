@@ -292,7 +292,3 @@ body {
   min-width: max-content;
 }
 
-.marquee-container:hover .animate-marquee,
-.marquee-container:hover .animate-marquee-reverse {
-  animation-play-state: paused;
-}

@@ -2,18 +2,25 @@ import { motion } from 'framer-motion';
 import { skillCategories } from '../data/skills';
 import { fadeInUp, staggerContainer } from '../lib/animations';
 
+const dotColors = ['bg-purple-500', 'bg-green-500', 'bg-blue-500', 'bg-yellow-500', 'bg-red-500', 'bg-teal-500', 'bg-pink-500'];
+
+const getFilledSkills = (skills: any[]) => {
+  const minItems = 12;
+  let filled = [...skills];
+  while (filled.length < minItems) {
+    filled = [...filled, ...skills];
+  }
+  return filled;
+};
+
 export default function Skills() {
-  const allSkills = skillCategories.flatMap(cat => cat.skills);
-  const half = Math.ceil(allSkills.length / 2);
-  const topRowSkills = allSkills.slice(0, half);
-  const bottomRowSkills = allSkills.slice(half);
   return (
     <section
       id="skills"
       className="py-20 lg:py-32 border-t-3 border-neo-border relative overflow-hidden"
     >
       <motion.div
-        className="container mx-auto px-4 lg:px-8 relative z-10"
+        className="container mx-auto relative z-10"
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
@@ -32,40 +39,45 @@ export default function Skills() {
           </p>
         </motion.div>
 
-        <div className="space-y-6 relative overflow-hidden marquee-container">
-          {/* Fading edges for marquee */}
-          <div className="absolute inset-y-0 left-0 w-12 md:w-32 bg-gradient-to-r from-neo-bg to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-12 md:w-32 bg-gradient-to-l from-neo-bg to-transparent z-10 pointer-events-none" />
-          
-          <div className="flex overflow-hidden py-2">
-            <div className="animate-marquee">
-              {[...topRowSkills, ...topRowSkills].map((skill, i) => (
-                <div
-                  key={`top-${i}`}
-                  className="flex items-center gap-3 px-5 py-3 mx-3 bg-neo-surface border-2 border-neo-border rounded-md cursor-pointer group transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_var(--color-neo-shadow)]"
-                  style={{ boxShadow: '2px 2px 0px var(--color-neo-shadow)' }}
-                >
-                  <img src={skill.icon} className="w-6 h-6 group-hover:scale-110 transition-transform" alt={skill.name} />
-                  <span className="font-bold text-neo-text-primary whitespace-nowrap">{skill.name}</span>
+        <div className="space-y-12 lg:space-y-16 relative overflow-hidden marquee-container">
+          {skillCategories.map((category, index) => {
+            const filledSkills = getFilledSkills(category.skills);
+            const displaySkills = [...filledSkills, ...filledSkills];
+            const dotColor = dotColors[index % dotColors.length];
+
+            return (
+              <motion.div key={category.title} variants={fadeInUp} className="relative">
+                {/* Category Badge */}
+                <div className="px-4 lg:px-12 mb-6">
+                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-neo-border bg-neo-surface/30 backdrop-blur-sm">
+                    <div className={`w-2 h-2 rounded-full ${dotColor}`} />
+                    <span className="text-[10px] sm:text-xs font-bold font-mono tracking-widest uppercase text-neo-text-secondary">
+                      {category.title}
+                    </span>
+                  </div>
                 </div>
-              ))}
-            </div>
-          </div>
-          
-          <div className="flex overflow-hidden py-2">
-            <div className="animate-marquee-reverse">
-              {[...bottomRowSkills, ...bottomRowSkills].map((skill, i) => (
-                <div
-                  key={`bottom-${i}`}
-                  className="flex items-center gap-3 px-5 py-3 mx-3 bg-neo-surface border-2 border-neo-border rounded-md cursor-pointer group transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_var(--color-neo-shadow)]"
-                  style={{ boxShadow: '2px 2px 0px var(--color-neo-shadow)' }}
-                >
-                  <img src={skill.icon} className="w-6 h-6 group-hover:scale-110 transition-transform" alt={skill.name} />
-                  <span className="font-bold text-neo-text-primary whitespace-nowrap">{skill.name}</span>
+
+                {/* Scrolling Icons */}
+                <div className="flex overflow-hidden py-2 relative group">
+                  {/* Fading Edges */}
+                  <div className="absolute inset-y-0 left-0 w-12 md:w-32 bg-gradient-to-r from-neo-bg to-transparent z-10 pointer-events-none" />
+                  <div className="absolute inset-y-0 right-0 w-12 md:w-32 bg-gradient-to-l from-neo-bg to-transparent z-10 pointer-events-none" />
+                  
+                  <div className={index % 2 === 0 ? "animate-marquee flex items-center" : "animate-marquee-reverse flex items-center"}>
+                    {displaySkills.map((skill, i) => (
+                      <div
+                        key={`${category.title}-${i}`}
+                        className="flex items-center justify-center mx-6 sm:mx-10 transition-transform duration-300 hover:scale-125"
+                        title={skill.name}
+                      >
+                        <img src={skill.icon} className="w-12 h-12 sm:w-16 sm:h-16 object-contain drop-shadow-sm" alt={skill.name} />
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              ))}
-            </div>
-          </div>
+              </motion.div>
+            );
+          })}
         </div>
       </motion.div>
     </section>
