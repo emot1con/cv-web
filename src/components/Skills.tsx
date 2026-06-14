@@ -7,7 +7,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="py-20 lg:py-32 border-t border-[#1e293b] bg-[#02050a] relative overflow-hidden"
+      className="py-20 lg:py-32 border-t border-obsidian-border bg-obsidian-bg relative overflow-hidden"
     >
       <motion.div
         className="container mx-auto px-4 lg:px-8 relative z-10"
@@ -18,13 +18,13 @@ export default function Skills() {
       >
         {/* Header */}
         <motion.div className="max-w-3xl mx-auto text-center mb-16 space-y-4" variants={fadeInUp}>
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#090e17] border border-[#1e293b] rounded-full">
-            <span className="text-xs font-semibold font-mono tracking-widest text-slate-400 uppercase">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-obsidian-surface border border-obsidian-border rounded-full">
+            <span className="text-xs font-semibold font-mono tracking-widest text-text-secondary uppercase">
               Expertise
             </span>
           </div>
-          <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-white">Technical Skills</h2>
-          <p className="text-sm text-slate-500 leading-relaxed font-mono uppercase tracking-widest">
+          <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-text-primary">Technical Skills</h2>
+          <p className="text-sm text-text-muted leading-relaxed font-mono uppercase tracking-widest">
             Technologies & Tools in Practice
           </p>
         </motion.div>
@@ -34,10 +34,10 @@ export default function Skills() {
             <motion.div key={cat.title} variants={scaleIn}>
               <SpotlightCard className="p-6 space-y-4 h-full">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-[#111827] border border-[#1e293b] flex items-center justify-center text-white">
+                  <div className="w-10 h-10 rounded-lg bg-obsidian-elevated border border-obsidian-border flex items-center justify-center text-text-primary">
                     <i className={`bx ${cat.icon} text-lg`} />
                   </div>
-                  <h3 className="text-base font-semibold text-white">{cat.title}</h3>
+                  <h3 className="text-base font-semibold text-text-primary">{cat.title}</h3>
                 </div>
                 <div className="flex flex-wrap gap-2 pt-2">
                   {cat.skills.map((skill) => (

@@ -64,12 +64,12 @@ export default function Dashboard() {
         >
           {/* Header */}
           <motion.div className="max-w-3xl mx-auto text-center mb-16 space-y-4" variants={fadeInUp}>
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#090e17] border border-[#1e293b] rounded-full">
-              <span className="text-xs font-semibold font-mono tracking-widest text-slate-400 uppercase">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-obsidian-surface border border-obsidian-border rounded-full">
+              <span className="text-xs font-semibold font-mono tracking-widest text-text-secondary uppercase">
                 System Telemetry
               </span>
             </div>
-            <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-white">
+            <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-text-primary">
               Real-time GitHub & WakaTime Telemetry
             </h2>
           </motion.div>
@@ -78,28 +78,28 @@ export default function Dashboard() {
             {/* Profile Card */}
             <motion.div className="lg:col-span-4 space-y-6" variants={slideInLeft}>
               <SpotlightCard className="p-6 text-center space-y-4">
-                <div className="w-20 h-20 rounded-full bg-[#111827] border border-[#1e293b] flex items-center justify-center mx-auto">
-                  <i className="bx bx-user text-3xl text-slate-500" />
+                <div className="w-20 h-20 rounded-full bg-obsidian-elevated border border-obsidian-border flex items-center justify-center mx-auto">
+                  <i className="bx bx-user text-3xl text-text-muted" />
                 </div>
                 <div className="space-y-1">
-                  <h3 className="text-base font-bold text-white">Your Name</h3>
-                  <p className="text-xs text-slate-500 font-mono">Lampung, Indonesia</p>
+                  <h3 className="text-base font-bold text-text-primary">Your Name</h3>
+                  <p className="text-xs text-text-muted font-mono">Lampung, Indonesia</p>
                 </div>
                 {loading ? (
-                  <p className="text-xs text-slate-500 font-mono animate-pulse">Loading telemetry trace...</p>
+                  <p className="text-xs text-text-muted font-mono animate-pulse">Loading telemetry trace...</p>
                 ) : (
                   <div className="grid grid-cols-3 gap-4 pt-2">
                     <div>
-                      <div className="text-lg font-bold text-white font-mono">{stats?.repos ?? '--'}</div>
-                      <div className="text-[10px] text-slate-500 font-mono uppercase">Repos</div>
+                      <div className="text-lg font-bold text-text-primary font-mono">{stats?.repos ?? '--'}</div>
+                      <div className="text-[10px] text-text-muted font-mono uppercase">Repos</div>
                     </div>
                     <div>
-                      <div className="text-lg font-bold text-white font-mono">{stats?.followers ?? '--'}</div>
-                      <div className="text-[10px] text-slate-500 font-mono uppercase">Followers</div>
+                      <div className="text-lg font-bold text-text-primary font-mono">{stats?.followers ?? '--'}</div>
+                      <div className="text-[10px] text-text-muted font-mono uppercase">Followers</div>
                     </div>
                     <div>
-                      <div className="text-lg font-bold text-white font-mono">{stats?.gists ?? '--'}</div>
-                      <div className="text-[10px] text-slate-500 font-mono uppercase">Gists</div>
+                      <div className="text-lg font-bold text-text-primary font-mono">{stats?.gists ?? '--'}</div>
+                      <div className="text-[10px] text-text-muted font-mono uppercase">Gists</div>
                     </div>
                   </div>
                 )}
@@ -107,7 +107,7 @@ export default function Dashboard() {
                   href="https://github.com/yourusername"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold font-mono text-electric-indigo hover:text-white transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold font-mono text-electric-indigo hover:text-text-primary transition-colors"
                 >
                   <i className="bx bxl-github text-sm" />
                   <span>Open GitHub</span>
@@ -116,22 +116,22 @@ export default function Dashboard() {
 
               {/* Status Cards */}
               <div className="space-y-3">
-                <div className="flex items-center justify-between px-4 py-3 bg-[#090e17] border border-[#1e293b] rounded-lg">
-                  <span className="text-xs font-mono text-slate-400">GitHub API Gateway</span>
+                <div className="flex items-center justify-between px-4 py-3 bg-obsidian-surface border border-obsidian-border rounded-lg">
+                  <span className="text-xs font-mono text-text-secondary">GitHub API Gateway</span>
                   <span className="flex items-center gap-1.5 text-xs font-mono text-electric-emerald">
                     <span className="w-1.5 h-1.5 rounded-full bg-electric-emerald" />
                     ONLINE [12ms]
                   </span>
                 </div>
-                <div className="flex items-center justify-between px-4 py-3 bg-[#090e17] border border-[#1e293b] rounded-lg">
-                  <span className="text-xs font-mono text-slate-400">WakaTime Sync Engine</span>
+                <div className="flex items-center justify-between px-4 py-3 bg-obsidian-surface border border-obsidian-border rounded-lg">
+                  <span className="text-xs font-mono text-text-secondary">WakaTime Sync Engine</span>
                   <span className="flex items-center gap-1.5 text-xs font-mono text-electric-emerald">
                     <span className="w-1.5 h-1.5 rounded-full bg-electric-emerald" />
                     ONLINE [54ms]
                   </span>
                 </div>
-                <div className="flex items-center justify-between px-4 py-3 bg-[#090e17] border border-[#1e293b] rounded-lg">
-                  <span className="text-xs font-mono text-slate-400">Telemetry Proxy</span>
+                <div className="flex items-center justify-between px-4 py-3 bg-obsidian-surface border border-obsidian-border rounded-lg">
+                  <span className="text-xs font-mono text-text-secondary">Telemetry Proxy</span>
                   <span className="flex items-center gap-1.5 text-xs font-mono text-electric-emerald">
                     <span className="w-1.5 h-1.5 rounded-full bg-electric-emerald" />
                     SECURE [15ms]
@@ -144,7 +144,7 @@ export default function Dashboard() {
             <motion.div className="lg:col-span-8 space-y-6" variants={slideInRight}>
               {/* Top Languages */}
               <SpotlightCard className="p-6">
-                <h3 className="text-sm font-bold text-white mb-4 tracking-tight font-mono uppercase">
+                <h3 className="text-sm font-bold text-text-primary mb-4 tracking-tight font-mono uppercase">
                   Top Programming Languages
                 </h3>
                 <div className="space-y-3">
@@ -152,14 +152,14 @@ export default function Dashboard() {
                     <div key={lang.name} className="space-y-1">
                       <div className="flex items-center justify-between text-xs">
                         <div className="flex items-center gap-2">
-                          <span className="text-slate-300 font-medium">{lang.name}</span>
+                          <span className="text-text-secondary font-medium">{lang.name}</span>
                           {lang.active && (
                             <span className="text-[9px] font-mono text-electric-emerald">(Active)</span>
                           )}
                         </div>
-                        <span className="font-mono text-slate-500">{lang.percentage}%</span>
+                        <span className="font-mono text-text-muted">{lang.percentage}%</span>
                       </div>
-                      <div className="w-full h-1.5 bg-[#111827] rounded-full overflow-hidden">
+                      <div className="w-full h-1.5 bg-obsidian-elevated rounded-full overflow-hidden">
                         <div
                           className={`h-full rounded-full transition-all duration-1000 ${
                             lang.active
@@ -178,34 +178,34 @@ export default function Dashboard() {
               <SpotlightCard className="p-6">
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
                   <div className="text-center">
-                    <div className="text-[10px] font-mono text-slate-500 uppercase mb-1">Active Editor</div>
-                    <div className="text-sm font-semibold text-white">VS Code</div>
+                    <div className="text-[10px] font-mono text-text-muted uppercase mb-1">Active Editor</div>
+                    <div className="text-sm font-semibold text-text-primary">VS Code</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-[10px] font-mono text-slate-500 uppercase mb-1">Active Platform</div>
-                    <div className="text-sm font-semibold text-white">Windows 11</div>
+                    <div className="text-[10px] font-mono text-text-muted uppercase mb-1">Active Platform</div>
+                    <div className="text-sm font-semibold text-text-primary">Windows 11</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-[10px] font-mono text-slate-500 uppercase mb-1">Today's Focus</div>
-                    <div className="text-sm font-semibold text-white">Kotlin & PHP</div>
+                    <div className="text-[10px] font-mono text-text-muted uppercase mb-1">Today's Focus</div>
+                    <div className="text-sm font-semibold text-text-primary">Kotlin & PHP</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-[10px] font-mono text-slate-500 uppercase mb-1">Weekly Average</div>
-                    <div className="text-sm font-semibold text-white">3.2 hrs/day</div>
+                    <div className="text-[10px] font-mono text-text-muted uppercase mb-1">Weekly Average</div>
+                    <div className="text-sm font-semibold text-text-primary">3.2 hrs/day</div>
                   </div>
                 </div>
               </SpotlightCard>
 
               {/* Goal Progress */}
               <SpotlightCard className="p-6">
-                <h3 className="text-sm font-bold text-white mb-4 tracking-tight font-mono uppercase">
+                <h3 className="text-sm font-bold text-text-primary mb-4 tracking-tight font-mono uppercase">
                   Real-time Progress
                 </h3>
                 <div className="text-center py-4">
-                  <div className="text-3xl font-bold text-white font-mono">0.0h</div>
-                  <div className="text-xs text-slate-500 font-mono mt-1">of 4.0h goal</div>
+                  <div className="text-3xl font-bold text-text-primary font-mono">0.0h</div>
+                  <div className="text-xs text-text-muted font-mono mt-1">of 4.0h goal</div>
                 </div>
-                <div className="w-full h-2 bg-[#111827] rounded-full overflow-hidden">
+                <div className="w-full h-2 bg-obsidian-elevated rounded-full overflow-hidden">
                   <div className="w-0 h-full bg-gradient-to-r from-electric-indigo to-electric-cyan rounded-full transition-all duration-500" />
                 </div>
               </SpotlightCard>

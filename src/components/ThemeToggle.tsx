@@ -7,7 +7,7 @@ export default function ThemeToggle() {
     <button
       id="theme-toggle"
       onClick={toggleTheme}
-      className="relative w-9 h-9 flex items-center justify-center rounded-lg bg-obsidian-elevated border border-obsidian-border hover:border-obsidian-border-active text-slate-400 hover:text-white transition-all duration-200"
+      className="relative w-9 h-9 flex items-center justify-center rounded-lg bg-obsidian-elevated border border-obsidian-border hover:border-obsidian-border-active text-text-secondary hover:text-text-primary transition-all duration-200"
       aria-label="Toggle theme"
     >
       <i

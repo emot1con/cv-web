@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Terminal from './Terminal';
 import { useTypewriter } from '../hooks/useTypewriter';
+import { useCountUp } from '../hooks/useCountUp';
 import { fadeInUp, staggerContainer } from '../lib/animations';
 
 const ROLES = [
@@ -12,6 +13,10 @@ const ROLES = [
 export default function Hero() {
   const [spotlightStyle, setSpotlightStyle] = useState({});
   const { displayText, showCursor } = useTypewriter({ strings: ROLES });
+  const metricsRef = useRef<HTMLDivElement>(null);
+
+  const projects = useCountUp({ end: 20, duration: 2000, suffix: '+' });
+  const years = useCountUp({ end: 3, duration: 1500, suffix: '+' });
 
   useEffect(() => {
     const handleMouse = (e: MouseEvent) => {
@@ -31,6 +36,9 @@ export default function Hero() {
     >
       {/* Grid Background */}
       <div className="absolute inset-0 hero-grid-pattern pointer-events-none z-0" />
+
+      {/* Noise Texture Overlay */}
+      <div className="absolute inset-0 noise-overlay pointer-events-none z-0" />
 
       {/* Spotlight */}
       <div
@@ -56,19 +64,19 @@ export default function Hero() {
           <motion.div variants={fadeInUp} className="flex-1 text-center lg:text-left space-y-8">
             <div className="space-y-4">
               {/* Available Capsule */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#090e17] border border-[#1e293b] rounded-full shadow-lg shadow-black/25">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-obsidian-surface border border-obsidian-border rounded-full shadow-lg shadow-black/25">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-electric-emerald opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-electric-emerald" />
                 </span>
-                <span className="text-xs font-semibold font-mono tracking-wider text-slate-300 uppercase">
+                <span className="text-xs font-semibold font-mono tracking-wider text-text-secondary uppercase">
                   Available for work
                 </span>
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tighter text-white leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tighter text-text-primary leading-tight">
                 Hello, I'm
-                <span className="block bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent mt-2">
+                <span className="block bg-gradient-to-r from-electric-emerald via-electric-indigo to-electric-cyan bg-clip-text text-transparent mt-2">
                   Arqan Purusa Eryan
                 </span>
               </h1>
@@ -76,11 +84,11 @@ export default function Hero() {
 
             {/* Role typewriter */}
             <div className="space-y-2">
-              <span className="text-base font-semibold font-mono text-slate-500 uppercase tracking-widest">
+              <span className="text-base font-semibold font-mono text-text-muted uppercase tracking-widest">
                 Currently building as a
               </span>
               <div className="h-10 flex items-center justify-center lg:justify-start">
-                <span className="text-xl md:text-2xl font-bold text-white">
+                <span className="text-xl md:text-2xl font-bold text-text-primary">
                   {displayText}
                   {showCursor && <span className="text-electric-indigo animate-pulse">|</span>}
                 </span>
@@ -88,9 +96,9 @@ export default function Hero() {
             </div>
 
             {/* Quote */}
-            <div className="relative border-l border-[#1e293b] pl-6 py-1 italic text-slate-400 font-medium max-w-lg leading-relaxed">
+            <div className="relative border-l border-obsidian-border pl-6 py-1 italic text-text-secondary font-medium max-w-lg leading-relaxed">
               "The technology you use impresses no one. The experience you create with it is everything."
-              <span className="block text-xs font-mono font-bold tracking-widest uppercase text-slate-500 mt-2 not-italic">
+              <span className="block text-xs font-mono font-bold tracking-widest uppercase text-text-muted mt-2 not-italic">
                 — Sean Gerety
               </span>
             </div>
@@ -100,30 +108,37 @@ export default function Hero() {
               <a
                 href="#"
                 target="_blank"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-200 text-black px-8 py-3.5 rounded-xl font-semibold tracking-tight transition-all duration-200 shadow-md shadow-white/5 hover:scale-[1.01]"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-text-primary hover:bg-slate-200 text-obsidian-bg px-8 py-3.5 rounded-xl font-semibold tracking-tight transition-all duration-200 shadow-md shadow-white/5 hover:scale-[1.01] magnetic-btn"
               >
                 <i className="bx bx-download text-lg" />
                 <span>Download Resume</span>
               </a>
               <a
                 href="#contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#090e17] hover:bg-[#111827] border border-[#1e293b] hover:border-[#334155] text-slate-200 hover:text-white px-8 py-3.5 rounded-xl font-semibold transition-all duration-200"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-obsidian-surface hover:bg-obsidian-elevated border border-obsidian-border hover:border-obsidian-border-active text-text-primary hover:text-text-primary px-8 py-3.5 rounded-xl font-semibold transition-all duration-200 magnetic-btn"
               >
                 <span>Get In Touch</span>
                 <i className="bx bx-right-arrow-alt text-lg" />
               </a>
             </div>
 
-            {/* Metrics */}
-            <div className="flex items-center gap-8 justify-center lg:justify-start pt-6 border-t border-[#1e293b]/50">
+            {/* Metrics — animated counters */}
+            <div
+              ref={metricsRef}
+              className="flex items-center gap-8 justify-center lg:justify-start pt-6 border-t border-obsidian-border/50"
+            >
               <div>
-                <div className="text-2xl font-bold text-white font-mono">20+</div>
-                <div className="text-xs text-slate-500 font-mono uppercase tracking-widest">Projects Completed</div>
+                <div className="text-2xl font-bold text-text-primary font-mono" ref={projects.ref as React.RefObject<HTMLDivElement>}>
+                  {projects.display}
+                </div>
+                <div className="text-xs text-text-muted font-mono uppercase tracking-widest">Projects Completed</div>
               </div>
               <div className="w-px h-8 bg-[#1e293b]" />
               <div>
-                <div className="text-2xl font-bold text-white font-mono">3+</div>
-                <div className="text-xs text-slate-500 font-mono uppercase tracking-widest">Years Experience</div>
+                <div className="text-2xl font-bold text-text-primary font-mono" ref={years.ref as React.RefObject<HTMLDivElement>}>
+                  {years.display}
+                </div>
+                <div className="text-xs text-text-muted font-mono uppercase tracking-widest">Years Experience</div>
               </div>
             </div>
           </motion.div>

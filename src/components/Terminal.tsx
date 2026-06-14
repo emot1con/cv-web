@@ -65,9 +65,9 @@ export default function Terminal() {
   return (
     <div className="relative w-full max-w-lg group">
       <div className="absolute -inset-px rounded-2xl bg-electric-indigo/10 blur-xl opacity-50 group-hover:opacity-75 transition-opacity" />
-      <div className="relative bg-[#090e17] border border-[#1e293b] rounded-2xl shadow-2xl overflow-hidden shadow-black/80">
+      <div className="relative bg-obsidian-surface border border-obsidian-border rounded-2xl shadow-2xl overflow-hidden shadow-black/80">
         {/* Header Bar */}
-        <div className="bg-[#111827]/80 px-4 py-3 flex items-center justify-between text-xs text-slate-400 border-b border-[#1e293b] select-none">
+        <div className="bg-obsidian-elevated/80 px-4 py-3 flex items-center justify-between text-xs text-text-secondary border-b border-obsidian-border select-none">
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F56] border border-[#E0443E]" />
             <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E] border border-[#DEA123]" />
@@ -80,7 +80,7 @@ export default function Terminal() {
         {/* Terminal Output */}
         <div
           ref={historyRef}
-          className="p-6 h-[320px] text-xs font-mono leading-relaxed overflow-y-auto text-slate-300 flex flex-col justify-between scroll-smooth scrollbar-thin"
+          className="p-6 h-[320px] text-xs font-mono leading-relaxed overflow-y-auto text-text-secondary flex flex-col justify-between scroll-smooth scrollbar-thin"
           onClick={() => inputRef.current?.focus()}
         >
           <div className="space-y-3">
@@ -96,7 +96,7 @@ export default function Terminal() {
                   <span>{cmd.input}</span>
                 </div>
                 {cmd.output && (
-                  <pre className="text-slate-400 whitespace-pre-wrap font-mono text-[11px] leading-relaxed">
+                  <pre className="text-text-secondary whitespace-pre-wrap font-mono text-[11px] leading-relaxed">
                     {cmd.output}
                   </pre>
                 )}
@@ -105,7 +105,7 @@ export default function Terminal() {
           </div>
 
           {/* Prompt */}
-          <div className="flex items-center gap-2 pt-2 border-t border-[#1e293b]/30 mt-4">
+          <div className="flex items-center gap-2 pt-2 border-t border-obsidian-border/30 mt-4">
             <span className="text-electric-indigo font-bold whitespace-nowrap">fadhil@bash:~$</span>
             <input
               ref={inputRef}
@@ -113,7 +113,7 @@ export default function Terminal() {
               value={input}
               onChange={e => setInput(e.target.value)}
               onKeyDown={handleCommand}
-              className="bg-transparent border-none outline-none text-white flex-1 caret-electric-indigo font-mono text-xs w-full"
+              className="bg-transparent border-none outline-none text-text-primary flex-1 caret-electric-indigo font-mono text-xs w-full"
               autoComplete="off"
               autoCorrect="off"
               autoCapitalize="off"

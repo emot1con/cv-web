@@ -41,7 +41,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#02050a]/85 backdrop-blur-md border-b border-[#1e293b] shadow-lg shadow-black/20'
+          ? 'bg-obsidian-bg/85 backdrop-blur-md border-b border-obsidian-border shadow-lg shadow-black/20'
           : ''
       }`}
     >
@@ -58,7 +58,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             to="/"
-            className="text-sm font-bold font-mono tracking-tight text-white hover:text-electric-indigo transition-colors"
+            className="text-sm font-bold font-mono tracking-tight text-text-primary hover:text-electric-indigo transition-colors"
           >
             ~/portfolio
           </Link>
@@ -72,8 +72,8 @@ export default function Navbar() {
                 onClick={() => handleNavClick(link.href)}
                 className={`px-3 py-2 text-xs font-semibold font-mono rounded-lg transition-all duration-200 ${
                   link.active
-                    ? 'text-white bg-obsidian-elevated border border-obsidian-border'
-                    : 'text-slate-400 hover:text-white hover:bg-obsidian-elevated/50'
+                    ? 'text-text-primary bg-obsidian-elevated border border-obsidian-border'
+                    : 'text-text-secondary hover:text-text-primary hover:bg-obsidian-elevated/50'
                 }`}
               >
                 {link.label}
@@ -127,8 +127,8 @@ export default function Navbar() {
                 onClick={() => handleNavClick(link.href)}
                 className={`block px-3 py-2.5 text-xs font-semibold font-mono rounded-lg transition-all ${
                   link.active
-                    ? 'text-white bg-obsidian-elevated border border-obsidian-border'
-                    : 'text-slate-400 hover:text-white hover:bg-obsidian-elevated/50'
+                    ? 'text-text-primary bg-obsidian-elevated border border-obsidian-border'
+                    : 'text-text-secondary hover:text-text-primary hover:bg-obsidian-elevated/50'
                 }`}
               >
                 {link.label}

@@ -92,11 +92,11 @@ export default function CommandPalette() {
       {/* Floating FAB */}
       <button
         onClick={() => setOpen(true)}
-        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[90] flex items-center justify-center gap-2.5 p-3.5 sm:px-4 sm:py-3 bg-[#090e17]/95 backdrop-blur-md border border-[#1e293b] hover:border-electric-indigo/40 rounded-full shadow-lg shadow-black/40 text-slate-400 hover:text-white transition-all duration-300 hover:scale-105 active:scale-95 text-xs font-semibold select-none"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[90] flex items-center justify-center gap-2.5 p-3.5 sm:px-4 sm:py-3 bg-obsidian-surface/95 backdrop-blur-md border border-obsidian-border hover:border-electric-indigo/40 rounded-full shadow-lg shadow-black/40 text-text-secondary hover:text-text-primary transition-all duration-300 hover:scale-105 active:scale-95 text-xs font-semibold select-none"
       >
         <i className="bx bx-terminal text-xl sm:text-sm text-electric-indigo" />
         <span className="hidden sm:inline">Command Center</span>
-        <kbd className="hidden sm:inline-block px-1.5 py-0.5 font-mono text-[9px] text-slate-400 bg-[#02050a] border border-[#1e293b] rounded">
+        <kbd className="hidden sm:inline-block px-1.5 py-0.5 font-mono text-[9px] text-text-secondary bg-obsidian-bg border border-obsidian-border rounded">
           Ctrl+K
         </kbd>
       </button>
@@ -109,21 +109,21 @@ export default function CommandPalette() {
         }}
       >
         {/* Palette Box */}
-        <div className="w-full max-w-lg bg-[#090e17]/95 border border-[#1e293b] rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[450px] animate-fade-in-down">
+        <div className="w-full max-w-lg bg-obsidian-surface/95 border border-obsidian-border rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[450px] animate-fade-in-down">
           {/* Search */}
-          <div className="flex items-center gap-3 px-4 py-3.5 border-b border-[#1e293b]/50 bg-[#111827]/40">
-            <i className="bx bx-search text-slate-500 text-lg" />
+          <div className="flex items-center gap-3 px-4 py-3.5 border-b border-obsidian-border/50 bg-obsidian-elevated/40">
+            <i className="bx bx-search text-text-muted text-lg" />
             <input
               ref={inputRef}
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search navigation shortcuts... (Arrow keys to traverse)"
-              className="bg-transparent border-none outline-none text-sm text-white placeholder-slate-500 flex-1 font-sans"
+              className="bg-transparent border-none outline-none text-sm text-text-primary placeholder-slate-500 flex-1 font-sans"
               autoComplete="off"
               spellCheck="false"
             />
-            <kbd className="hidden sm:inline-block px-1.5 py-0.5 font-mono text-[10px] text-slate-400 bg-[#090e17] border border-[#1e293b] rounded">
+            <kbd className="hidden sm:inline-block px-1.5 py-0.5 font-mono text-[10px] text-text-secondary bg-obsidian-surface border border-obsidian-border rounded">
               ESC
             </kbd>
           </div>
@@ -131,7 +131,7 @@ export default function CommandPalette() {
           {/* Results */}
           <div className="flex-1 overflow-y-auto p-2 space-y-1 scroll-smooth scrollbar-thin">
             {filtered.length === 0 ? (
-              <div className="text-center py-8 text-xs text-slate-500 font-mono">
+              <div className="text-center py-8 text-xs text-text-muted font-mono">
                 No shortcuts matched your search query.
               </div>
             ) : (
@@ -141,21 +141,21 @@ export default function CommandPalette() {
                   onClick={() => handleSelect(item)}
                   className={`flex items-center justify-between px-3 py-2.5 rounded-lg border text-xs font-semibold cursor-pointer transition-all duration-150 ${
                     idx === selectedIndex
-                      ? 'bg-electric-indigo/10 border-electric-indigo/35 text-white'
-                      : 'border-transparent text-slate-400 hover:text-white hover:bg-[#090e17]/60'
+                      ? 'bg-electric-indigo/10 border-electric-indigo/35 text-text-primary'
+                      : 'border-transparent text-text-secondary hover:text-text-primary hover:bg-obsidian-surface/60'
                   }`}
                 >
                   <div className="flex items-center gap-3">
                     <i
                       className={`bx ${item.icon} text-base ${
-                        idx === selectedIndex ? 'text-electric-indigo' : 'text-slate-500'
+                        idx === selectedIndex ? 'text-electric-indigo' : 'text-text-muted'
                       }`}
                     />
                     <span>{item.title}</span>
                   </div>
                   <span
-                    className={`text-[9px] font-mono tracking-widest uppercase bg-[#090e17] px-1.5 py-0.5 rounded border ${
-                      CATEGORY_COLORS[item.category] || 'text-slate-500 border-[#1e293b]'
+                    className={`text-[9px] font-mono tracking-widest uppercase bg-obsidian-surface px-1.5 py-0.5 rounded border ${
+                      CATEGORY_COLORS[item.category] || 'text-text-muted border-obsidian-border'
                     }`}
                   >
                     {item.category}
@@ -166,7 +166,7 @@ export default function CommandPalette() {
           </div>
 
           {/* Footer */}
-          <div className="px-4 py-2 bg-[#111827]/20 border-t border-[#1e293b]/30 flex items-center justify-between text-[10px] text-slate-500 font-mono">
+          <div className="px-4 py-2 bg-obsidian-elevated/20 border-t border-obsidian-border/30 flex items-center justify-between text-[10px] text-text-muted font-mono">
             <div className="flex items-center gap-3">
               <span>↑↓ Navigate</span>
               <span>↵ Select</span>

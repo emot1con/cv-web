@@ -6,7 +6,7 @@ export default function VerticalTimeline() {
   return (
     <section
       id="how-i-work"
-      className="py-20 lg:py-32 border-t border-[#1e293b] bg-[#090e17]/10 relative overflow-hidden"
+      className="py-20 lg:py-32 border-t border-obsidian-border bg-obsidian-surface/10 relative overflow-hidden"
     >
       <motion.div
         className="container mx-auto px-4 lg:px-8 relative z-10"
@@ -17,13 +17,13 @@ export default function VerticalTimeline() {
       >
         {/* Header */}
         <motion.div className="max-w-3xl mx-auto text-center mb-16 space-y-4" variants={fadeInUp}>
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#090e17] border border-[#1e293b] rounded-full">
-            <span className="text-xs font-semibold font-mono tracking-widest text-slate-400 uppercase">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-obsidian-surface border border-obsidian-border rounded-full">
+            <span className="text-xs font-semibold font-mono tracking-widest text-text-secondary uppercase">
               Process
             </span>
           </div>
-          <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-white">How I Work</h2>
-          <p className="text-sm text-slate-500 leading-relaxed font-mono uppercase tracking-widest">
+          <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-text-primary">How I Work</h2>
+          <p className="text-sm text-text-muted leading-relaxed font-mono uppercase tracking-widest">
             From idea to production — my engineering workflow
           </p>
         </motion.div>
@@ -44,7 +44,7 @@ export default function VerticalTimeline() {
             >
               {/* Connector Dot */}
               <div className="absolute left-5 md:left-1/2 z-10 -translate-x-1/2">
-                <div className="w-10 h-10 rounded-full bg-[#090e17] border-2 border-electric-indigo flex items-center justify-center shadow-lg shadow-electric-indigo/20">
+                <div className="w-10 h-10 rounded-full bg-obsidian-surface border-2 border-electric-indigo flex items-center justify-center shadow-lg shadow-electric-indigo/20">
                   <i className={`bx ${entry.icon} text-electric-indigo text-sm`} />
                 </div>
               </div>
@@ -60,11 +60,11 @@ export default function VerticalTimeline() {
                     {entry.step}
                   </span>
                   {/* Title */}
-                  <h3 className="text-base font-bold text-white">
+                  <h3 className="text-base font-bold text-text-primary">
                     {entry.title}
                   </h3>
                   {/* Description — separate line */}
-                  <p className="text-sm text-slate-400 leading-relaxed">
+                  <p className="text-sm text-text-secondary leading-relaxed">
                     {entry.description}
                   </p>
                 </div>
