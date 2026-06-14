@@ -13,7 +13,7 @@ export default function Projects() {
     <>
       <section
         id="project"
-        className="pt-10 lg:pt-16 pb-20 lg:pb-32 relative overflow-hidden"
+        className="pt-0 pb-20 lg:pb-32 relative overflow-hidden"
       >
         <motion.div
           className="container mx-auto px-4 lg:px-8 relative z-10"

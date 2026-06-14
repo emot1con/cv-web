@@ -1,141 +1,168 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import ThemeToggle from './ThemeToggle';
+import { motion } from 'framer-motion';
+import { useTheme } from '../hooks/useTheme';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const [activeSection, setActiveSection] = useState('home');
   const location = useLocation();
   const isHome = location.pathname === '/' || location.pathname.startsWith('/#');
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
-      const docHeight = document.body.scrollHeight - window.innerHeight;
-      setScrollProgress(docHeight > 0 ? window.scrollY / docHeight : 0);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { label: 'Home', href: '/#home', active: location.pathname === '/' },
-    { label: 'About', href: isHome ? '#profile' : '/#profile' },
-    { label: 'Skills', href: isHome ? '#skills' : '/#skills' },
-    { label: 'Contact', href: isHome ? '#contact' : '/#contact' },
-    { label: 'Projects', href: '/projects' },
-  ];
+  useEffect(() => {
+    if (!isHome) {
+      if (location.pathname === '/projects') setActiveSection('projects');
+      return;
+    }
+
+    const sections = document.querySelectorAll('section[id], header[id]');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: '-30% 0px -70% 0px' }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, [location, isHome]);
 
   const handleNavClick = (href: string) => {
-    setMobileOpen(false);
-    if (href.startsWith('#')) {
-      const el = document.querySelector(href);
+    if (href.startsWith('/#') || href.startsWith('#')) {
+      const id = href.replace('/#', '#');
+      const el = document.querySelector(id);
       if (el) el.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
+  const navLinks = [
+    { id: 'home', label: 'Home', href: '/#home', icon: 'bx-home-alt' },
+    { id: 'profile', label: 'About', href: isHome ? '#profile' : '/#profile', icon: 'bx-user' },
+    { id: 'skills', label: 'Skills', href: isHome ? '#skills' : '/#skills', icon: 'bx-code-alt' },
+    { id: 'contact', label: 'Contact', href: isHome ? '#contact' : '/#contact', icon: 'bx-envelope' },
+    { id: 'projects', label: 'Projects', href: '/projects', icon: 'bx-folder' },
+  ];
+
   return (
-    <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-200 ${
-        scrolled
-          ? 'bg-neo-bg border-b-3 border-neo-border shadow-[0_4px_0px_var(--color-neo-shadow)]'
-          : ''
-      }`}
-    >
-      {/* Scroll Progress */}
-      <div className="absolute bottom-0 left-0 w-full h-[3px] bg-neo-border/20">
-        <div
-          className="h-full bg-neo-accent origin-left transition-transform duration-150"
-          style={{ transform: `scaleX(${scrollProgress})` }}
-        />
-      </div>
-
-      <nav className="container mx-auto px-4 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link
-            to="/"
-            className="text-base font-bold font-mono tracking-tight text-neo-text-primary hover:text-neo-accent transition-colors"
-          >
-            <span className="border-b-3 border-neo-accent pb-0.5">~/portfolio</span>
-          </Link>
-
-          {/* Desktop Links */}
-          <div className="hidden lg:flex items-center gap-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={() => handleNavClick(link.href)}
-                className={`px-3 py-1.5 text-xs font-bold font-mono rounded-md transition-all duration-150 border-2 ${
-                  link.active
-                    ? 'text-neo-text-primary bg-neo-accent border-neo-border shadow-[2px_2px_0px_var(--color-neo-shadow)]'
-                    : 'text-neo-text-secondary border-transparent hover:text-neo-text-primary hover:bg-neo-elevated hover:border-neo-border hover:shadow-[2px_2px_0px_var(--color-neo-shadow)]'
-                }`}
-              >
-                {link.label}
-              </a>
-            ))}
-            <div className="ml-2 pl-2 border-l-2 border-neo-border">
-              <ThemeToggle />
-            </div>
-          </div>
-
-          {/* Mobile Controls */}
-          <div className="flex lg:hidden items-center gap-2">
-            <ThemeToggle />
-            <button
-              id="menu-toggle"
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className="w-10 h-10 flex flex-col items-center justify-center gap-[4px] rounded-md bg-neo-surface border-2 border-neo-border transition-all"
-              style={{ boxShadow: '2px 2px 0px var(--color-neo-shadow)' }}
-            >
-              <span
-                className={`block w-5 h-[2px] bg-neo-text-primary rounded-none transition-all duration-200 ${
-                  mobileOpen ? 'rotate-45 translate-y-[6px]' : ''
-                }`}
-              />
-              <span
-                className={`block w-5 h-[2px] bg-neo-text-primary rounded-none transition-all duration-200 ${
-                  mobileOpen ? 'opacity-0' : ''
-                }`}
-              />
-              <span
-                className={`block w-5 h-[2px] bg-neo-text-primary rounded-none transition-all duration-200 ${
-                  mobileOpen ? '-rotate-45 -translate-y-[6px]' : ''
-                }`}
-              />
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        <div
-          className={`lg:hidden transition-all duration-200 overflow-hidden ${
-            mobileOpen
-              ? 'max-h-[75vh] opacity-100 pointer-events-auto'
-              : 'max-h-0 opacity-0 pointer-events-none'
+    <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[100] w-[95%] sm:w-auto flex justify-center">
+      <motion.nav 
+        className={`flex items-center justify-between sm:justify-start gap-2 sm:gap-4 px-4 sm:px-6 py-1 sm:py-1 rounded-xl transition-all duration-300 w-full sm:w-auto bg-neo-surface/90 backdrop-blur-md border border-neo-border ${
+          scrolled 
+            ? 'shadow-[0_8px_32px_rgba(0,0,0,0.12)]' 
+            : 'shadow-[0_4px_16px_rgba(0,0,0,0.08)]'
+        }`}
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+      >
+        {/* Logo */}
+        <Link 
+          to="/" 
+          className={`flex items-center pl-1 pr-3 sm:pr-4 border-r transition-colors shrink-0 ${
+            theme === 'light' ? 'border-neo-border' : 'border-white/10'
           }`}
         >
-          <div className="py-3 space-y-2 border-t-2 border-neo-border">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
+          <span className={`font-bold font-mono tracking-tight text-sm sm:text-base ${
+            theme === 'light' ? 'text-neo-text-primary' : 'text-white'
+          }`}>
+            <span className="text-[#fbbc05]">~/</span>portfolio
+          </span>
+        </Link>
+
+        {/* Center Links */}
+        <div className="hidden md:flex items-center gap-1 sm:gap-2 shrink-0">
+          {navLinks.map((link) => {
+            const isActive = isHome 
+              ? (link.id === activeSection || (link.id === 'profile' && activeSection === 'how-i-work'))
+              : location.pathname === link.href || (location.pathname === '/' && link.href === '/#home');
+            return (
+              <Link
+                key={link.id}
+                to={link.href}
                 onClick={() => handleNavClick(link.href)}
-                className={`block px-3 py-2.5 text-sm font-bold font-mono rounded-md transition-all border-2 ${
-                  link.active
-                    ? 'text-neo-text-primary bg-neo-accent border-neo-border shadow-[2px_2px_0px_var(--color-neo-shadow)]'
-                    : 'text-neo-text-secondary border-transparent hover:text-neo-text-primary hover:bg-neo-elevated hover:border-neo-border'
+                className={`h-8 sm:h-9 rounded-md text-xs sm:text-sm font-bold font-mono transition-all duration-300 flex items-center justify-center ${
+                  isActive ? 'px-3 sm:px-4' : 'w-8 sm:w-9'
+                } ${
+                  isActive 
+                    ? (theme === 'light' ? 'bg-neo-accent text-neo-text-primary' : 'bg-neo-accent text-white') 
+                    : link.id === 'projects'
+                      ? 'text-[#fbbc05] hover:bg-[#fbbc05]/10'
+                      : (theme === 'light' ? 'text-neo-text-secondary hover:text-neo-text-primary hover:bg-black/5' : 'text-white/70 hover:text-white hover:bg-white/10')
                 }`}
               >
-                {link.label}
-              </a>
-            ))}
-          </div>
+                <i className={`bx ${link.icon} text-base sm:text-lg shrink-0`} />
+                <span className={`overflow-hidden whitespace-nowrap transition-all duration-300 ${isActive ? 'max-w-[100px] ml-1.5 opacity-100' : 'max-w-0 ml-0 opacity-0'}`}>
+                  {link.label}
+                </span>
+              </Link>
+            );
+          })}
         </div>
-      </nav>
-    </header>
+
+        {/* Mobile menu simple icons - since text takes too much space */}
+        <div className="flex md:hidden items-center gap-1 shrink-0">
+           {navLinks.map((link) => {
+             const isActive = isHome 
+              ? (link.id === activeSection || (link.id === 'profile' && activeSection === 'how-i-work'))
+              : location.pathname === link.href || (location.pathname === '/' && link.href === '/#home');
+             return (
+               <Link
+                key={link.id}
+                to={link.href}
+                onClick={() => handleNavClick(link.href)}
+                className={`w-8 h-8 rounded-md flex items-center justify-center transition-all duration-200 ${
+                  isActive
+                    ? (theme === 'light' ? 'bg-neo-accent text-neo-text-primary' : 'bg-neo-accent text-white')
+                    : link.id === 'projects'
+                      ? 'text-[#fbbc05] hover:bg-[#fbbc05]/10'
+                      : (theme === 'light' ? 'text-neo-text-secondary hover:text-neo-text-primary hover:bg-black/5' : 'text-white/60 hover:text-white hover:bg-white/10')
+                }`}
+              >
+                <i className={`bx ${link.icon} text-lg`} />
+              </Link>
+             )
+           })}
+        </div>
+
+        {/* Theme Toggle */}
+        <div className={`pl-2 sm:pl-4 border-l transition-colors shrink-0 ${
+          theme === 'light' ? 'border-neo-border' : 'border-white/10'
+        }`}>
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className={`w-8 h-8 sm:w-10 sm:h-10 rounded-md flex items-center justify-center transition-all duration-200 ${
+              theme === 'light' 
+                ? 'text-neo-text-secondary hover:text-neo-text-primary hover:bg-black/5'
+                : 'text-white/60 hover:text-white hover:bg-white/10'
+            }`}
+          >
+            <i
+              className={`bx bx-sun text-lg sm:text-xl absolute transition-all duration-300 ${
+                theme === 'light' ? 'scale-100 rotate-0 opacity-100' : 'scale-0 rotate-90 opacity-0'
+              }`}
+            />
+            <i
+              className={`bx bx-moon text-lg sm:text-xl absolute transition-all duration-300 ${
+                theme === 'dark' ? 'scale-100 rotate-0 opacity-100' : 'scale-0 -rotate-90 opacity-0'
+              }`}
+            />
+          </button>
+        </div>
+      </motion.nav>
+    </div>
   );
 }

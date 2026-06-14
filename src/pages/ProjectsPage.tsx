@@ -8,7 +8,7 @@ import { fadeInUp, staggerContainer, scaleIn } from '../lib/animations';
 
 export default function ProjectsPage() {
   return (
-    <main className="pt-28 lg:pt-36 pb-20 overflow-hidden">
+    <main className="pt-20 lg:pt-24 pb-20 overflow-hidden">
       {/* Projects Section */}
       <Projects />
 

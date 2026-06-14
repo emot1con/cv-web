@@ -6,7 +6,7 @@ export default function VerticalTimeline() {
   return (
     <section
       id="how-i-work"
-      className="py-20 lg:py-32 border-t-3 border-neo-border relative overflow-hidden"
+      className="pb-20 lg:pb-32 pt-0 relative overflow-hidden"
     >
       <motion.div
         className="container mx-auto px-4 lg:px-8 relative z-10"
@@ -17,11 +17,6 @@ export default function VerticalTimeline() {
       >
         {/* Header */}
         <motion.div className="max-w-3xl mx-auto text-center mb-16 space-y-4" variants={fadeInUp}>
-          <div className="neo-badge inline-flex mx-auto">
-            <span className="text-xs font-bold font-mono tracking-widest uppercase">
-              Process
-            </span>
-          </div>
           <h2 className="text-3xl lg:text-4xl font-extrabold tracking-tight text-neo-text-primary font-heading">How I Work</h2>
           <p className="text-sm text-neo-text-muted leading-relaxed font-mono uppercase tracking-widest">
             From idea to production — my engineering workflow
