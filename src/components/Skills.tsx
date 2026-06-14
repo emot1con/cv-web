@@ -4,6 +4,10 @@ import SpotlightCard from './SpotlightCard';
 import { fadeInUp, staggerContainer, scaleIn } from '../lib/animations';
 
 export default function Skills() {
+  const allSkills = skillCategories.flatMap(cat => cat.skills);
+  const half = Math.ceil(allSkills.length / 2);
+  const topRowSkills = allSkills.slice(0, half);
+  const bottomRowSkills = allSkills.slice(half);
   return (
     <section
       id="skills"
@@ -28,6 +32,34 @@ export default function Skills() {
             Technologies & Tools in Practice
           </p>
         </motion.div>
+
+        <div className="mb-20 space-y-6 relative overflow-hidden marquee-container">
+          {/* Fading edges for marquee */}
+          <div className="absolute inset-y-0 left-0 w-12 md:w-32 bg-gradient-to-r from-obsidian-bg to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-12 md:w-32 bg-gradient-to-l from-obsidian-bg to-transparent z-10 pointer-events-none" />
+          
+          <div className="flex overflow-hidden py-2">
+            <div className="animate-marquee">
+              {[...topRowSkills, ...topRowSkills].map((skill, i) => (
+                <div key={`top-${i}`} className="flex items-center gap-3 px-5 py-3 mx-3 bg-obsidian-surface border border-obsidian-border rounded-xl shadow-sm shadow-black/20 hover:border-electric-indigo/50 hover:bg-obsidian-elevated transition-colors cursor-pointer group">
+                  <img src={skill.icon} className="w-6 h-6 drop-shadow-md group-hover:scale-110 transition-transform" alt={skill.name} />
+                  <span className="font-semibold text-text-primary whitespace-nowrap">{skill.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <div className="flex overflow-hidden py-2">
+            <div className="animate-marquee-reverse">
+              {[...bottomRowSkills, ...bottomRowSkills].map((skill, i) => (
+                <div key={`bottom-${i}`} className="flex items-center gap-3 px-5 py-3 mx-3 bg-obsidian-surface border border-obsidian-border rounded-xl shadow-sm shadow-black/20 hover:border-electric-indigo/50 hover:bg-obsidian-elevated transition-colors cursor-pointer group">
+                  <img src={skill.icon} className="w-6 h-6 drop-shadow-md group-hover:scale-110 transition-transform" alt={skill.name} />
+                  <span className="font-semibold text-text-primary whitespace-nowrap">{skill.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((cat) => (
