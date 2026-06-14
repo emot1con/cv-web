@@ -37,16 +37,16 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-200 ${
         scrolled
-          ? 'bg-obsidian-bg/85 backdrop-blur-md border-b border-obsidian-border shadow-lg shadow-black/20'
+          ? 'bg-neo-bg border-b-3 border-neo-border shadow-[0_4px_0px_var(--color-neo-shadow)]'
           : ''
       }`}
     >
       {/* Scroll Progress */}
-      <div className="absolute bottom-0 left-0 w-full h-[2px] bg-obsidian-border/30">
+      <div className="absolute bottom-0 left-0 w-full h-[3px] bg-neo-border/20">
         <div
-          className="h-full bg-electric-indigo origin-left transition-transform duration-150"
+          className="h-full bg-neo-accent origin-left transition-transform duration-150"
           style={{ transform: `scaleX(${scrollProgress})` }}
         />
       </div>
@@ -56,28 +56,28 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             to="/"
-            className="text-sm font-bold font-mono tracking-tight text-text-primary hover:text-electric-indigo transition-colors"
+            className="text-base font-bold font-mono tracking-tight text-neo-text-primary hover:text-neo-accent transition-colors"
           >
-            ~/portfolio
+            <span className="border-b-3 border-neo-accent pb-0.5">~/portfolio</span>
           </Link>
 
           {/* Desktop Links */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-2">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={() => handleNavClick(link.href)}
-                className={`px-3 py-2 text-xs font-semibold font-mono rounded-lg transition-all duration-200 ${
+                className={`px-3 py-1.5 text-xs font-bold font-mono rounded-md transition-all duration-150 border-2 ${
                   link.active
-                    ? 'text-text-primary bg-obsidian-elevated border border-obsidian-border'
-                    : 'text-text-secondary hover:text-text-primary hover:bg-obsidian-elevated/50'
+                    ? 'text-neo-text-primary bg-neo-accent border-neo-border shadow-[2px_2px_0px_var(--color-neo-shadow)]'
+                    : 'text-neo-text-secondary border-transparent hover:text-neo-text-primary hover:bg-neo-elevated hover:border-neo-border hover:shadow-[2px_2px_0px_var(--color-neo-shadow)]'
                 }`}
               >
                 {link.label}
               </a>
             ))}
-            <div className="ml-2 pl-2 border-l border-obsidian-border">
+            <div className="ml-2 pl-2 border-l-2 border-neo-border">
               <ThemeToggle />
             </div>
           </div>
@@ -88,21 +88,22 @@ export default function Navbar() {
             <button
               id="menu-toggle"
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="w-9 h-9 flex flex-col items-center justify-center gap-[3px] rounded-lg bg-obsidian-elevated border border-obsidian-border hover:border-obsidian-border-active transition-all"
+              className="w-10 h-10 flex flex-col items-center justify-center gap-[4px] rounded-md bg-neo-surface border-2 border-neo-border transition-all"
+              style={{ boxShadow: '2px 2px 0px var(--color-neo-shadow)' }}
             >
               <span
-                className={`block w-4 h-[1.5px] bg-slate-400 rounded transition-all duration-200 ${
-                  mobileOpen ? 'rotate-45 translate-y-[3.5px]' : ''
+                className={`block w-5 h-[2px] bg-neo-text-primary rounded-none transition-all duration-200 ${
+                  mobileOpen ? 'rotate-45 translate-y-[6px]' : ''
                 }`}
               />
               <span
-                className={`block w-4 h-[1.5px] bg-slate-400 rounded transition-all duration-200 ${
+                className={`block w-5 h-[2px] bg-neo-text-primary rounded-none transition-all duration-200 ${
                   mobileOpen ? 'opacity-0' : ''
                 }`}
               />
               <span
-                className={`block w-4 h-[1.5px] bg-slate-400 rounded transition-all duration-200 ${
-                  mobileOpen ? '-rotate-45 -translate-y-[3.5px]' : ''
+                className={`block w-5 h-[2px] bg-neo-text-primary rounded-none transition-all duration-200 ${
+                  mobileOpen ? '-rotate-45 -translate-y-[6px]' : ''
                 }`}
               />
             </button>
@@ -111,22 +112,22 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         <div
-          className={`lg:hidden transition-all duration-300 overflow-hidden ${
+          className={`lg:hidden transition-all duration-200 overflow-hidden ${
             mobileOpen
               ? 'max-h-[75vh] opacity-100 pointer-events-auto'
               : 'max-h-0 opacity-0 pointer-events-none'
           }`}
         >
-          <div className="py-3 space-y-1 border-t border-obsidian-border">
+          <div className="py-3 space-y-2 border-t-2 border-neo-border">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={() => handleNavClick(link.href)}
-                className={`block px-3 py-2.5 text-xs font-semibold font-mono rounded-lg transition-all ${
+                className={`block px-3 py-2.5 text-sm font-bold font-mono rounded-md transition-all border-2 ${
                   link.active
-                    ? 'text-text-primary bg-obsidian-elevated border border-obsidian-border'
-                    : 'text-text-secondary hover:text-text-primary hover:bg-obsidian-elevated/50'
+                    ? 'text-neo-text-primary bg-neo-accent border-neo-border shadow-[2px_2px_0px_var(--color-neo-shadow)]'
+                    : 'text-neo-text-secondary border-transparent hover:text-neo-text-primary hover:bg-neo-elevated hover:border-neo-border'
                 }`}
               >
                 {link.label}

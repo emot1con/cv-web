@@ -38,21 +38,21 @@ export default function Preloader() {
       {isLoading && (
         <motion.div
           key="preloader"
-          className="fixed inset-0 z-[10000] bg-obsidian-bg flex flex-col items-center justify-center gap-8"
+          className="fixed inset-0 z-[10000] bg-neo-bg flex flex-col items-center justify-center gap-8"
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
         >
           {/* Logo / Name */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.5 }}
+            transition={{ delay: 0.1, duration: 0.3 }}
             className="text-center space-y-2"
           >
-            <div className="text-xl font-bold font-mono text-text-primary tracking-tight">
+            <div className="text-xl font-extrabold font-mono text-neo-text-primary tracking-tight">
               ~/portfolio
             </div>
-            <div className="text-xs font-mono text-text-muted tracking-widest uppercase">
+            <div className="text-xs font-mono text-neo-text-muted tracking-widest uppercase font-bold">
               Initializing system...
             </div>
           </motion.div>
@@ -61,35 +61,38 @@ export default function Preloader() {
           <motion.div
             initial={{ opacity: 0, width: 0 }}
             animate={{ opacity: 1, width: 200 }}
-            transition={{ delay: 0.2, duration: 0.4 }}
+            transition={{ delay: 0.2, duration: 0.3 }}
             className="relative"
           >
-            <div className="w-[200px] h-[2px] bg-[#1e293b] rounded-full overflow-hidden">
+            <div
+              className="w-[200px] h-[6px] bg-neo-surface border-2 border-neo-border rounded-md overflow-hidden"
+              style={{ boxShadow: '2px 2px 0px var(--color-neo-shadow)' }}
+            >
               <motion.div
-                className="h-full bg-gradient-to-r from-electric-indigo to-electric-cyan rounded-full"
+                className="h-full bg-neo-accent"
                 initial={{ width: '0%' }}
                 animate={{ width: `${progress}%` }}
-                transition={{ duration: 0.3, ease: 'easeOut' }}
+                transition={{ duration: 0.2, ease: 'easeOut' }}
               />
             </div>
             <div className="text-center mt-3">
-              <span className="text-[10px] font-mono text-text-muted tabular-nums">
+              <span className="text-[10px] font-mono text-neo-text-muted tabular-nums font-bold">
                 {progress}%
               </span>
             </div>
           </motion.div>
 
-          {/* Decorative dots */}
-          <div className="flex items-center gap-1.5">
+          {/* Decorative squares */}
+          <div className="flex items-center gap-2">
             {[0, 1, 2].map((i) => (
               <motion.div
                 key={i}
-                className="w-1.5 h-1.5 rounded-full bg-electric-indigo/40"
+                className="w-2.5 h-2.5 bg-neo-accent border-2 border-neo-border"
                 animate={{ opacity: [0.3, 1, 0.3] }}
                 transition={{
-                  duration: 1.2,
+                  duration: 0.8,
                   repeat: Infinity,
-                  delay: i * 0.2,
+                  delay: i * 0.15,
                 }}
               />
             ))}

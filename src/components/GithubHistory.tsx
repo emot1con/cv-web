@@ -1,12 +1,15 @@
 import { motion } from 'framer-motion';
 import { GitHubCalendar } from 'react-github-calendar';
+import { useTheme } from '../hooks/useTheme';
 import { fadeInUp, staggerContainer } from '../lib/animations';
 
 export default function GithubHistory() {
+  const { theme } = useTheme();
+
   return (
     <section
       id="github-history"
-      className="py-20 lg:py-32 border-t border-obsidian-border bg-obsidian-bg relative overflow-hidden"
+      className="py-20 lg:py-32 border-t-3 border-neo-border bg-neo-bg relative overflow-hidden"
     >
       <motion.div
         className="container mx-auto px-4 lg:px-8 relative z-10"
@@ -17,13 +20,13 @@ export default function GithubHistory() {
       >
         {/* Header */}
         <motion.div className="max-w-3xl mx-auto text-center mb-16 space-y-4" variants={fadeInUp}>
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-obsidian-surface border border-obsidian-border rounded-full">
-            <span className="text-xs font-semibold font-mono tracking-widest text-text-secondary uppercase">
+          <div className="neo-badge inline-flex mx-auto">
+            <span className="text-xs font-bold font-mono tracking-widest uppercase">
               Activity
             </span>
           </div>
-          <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-text-primary">GitHub Contributions</h2>
-          <p className="text-sm text-text-muted leading-relaxed font-mono uppercase tracking-widest">
+          <h2 className="text-3xl lg:text-4xl font-extrabold tracking-tight text-neo-text-primary font-heading">GitHub Contributions</h2>
+          <p className="text-sm text-neo-text-muted leading-relaxed font-mono uppercase tracking-widest">
             My Open Source & Private Commits
           </p>
         </motion.div>
@@ -31,11 +34,12 @@ export default function GithubHistory() {
         {/* Calendar */}
         <motion.div 
           variants={fadeInUp} 
-          className="flex justify-center p-6 lg:p-8 bg-obsidian-surface border border-obsidian-border rounded-2xl max-w-5xl mx-auto overflow-x-auto"
+          className="flex justify-center p-6 lg:p-8 bg-neo-surface border-2 border-neo-border rounded-lg max-w-5xl mx-auto overflow-x-auto"
+          style={{ boxShadow: '4px 4px 0px var(--color-neo-shadow)' }}
         >
           <GitHubCalendar 
             username="emot1con" 
-            colorScheme="dark"
+            colorScheme={theme === 'light' ? 'light' : 'dark'}
             fontSize={14}
             blockSize={12}
             blockMargin={5}

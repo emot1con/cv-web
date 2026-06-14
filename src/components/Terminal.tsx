@@ -63,40 +63,42 @@ export default function Terminal() {
   };
 
   return (
-    <div className="relative w-full max-w-lg group">
-      <div className="absolute -inset-px rounded-2xl bg-electric-indigo/10 blur-xl opacity-50 group-hover:opacity-75 transition-opacity" />
-      <div className="relative bg-obsidian-surface border border-obsidian-border rounded-2xl shadow-2xl overflow-hidden shadow-black/80">
+    <div className="relative w-full max-w-lg">
+      <div
+        className="relative bg-neo-surface border-3 border-neo-border rounded-lg overflow-hidden"
+        style={{ boxShadow: '6px 6px 0px var(--color-neo-shadow)' }}
+      >
         {/* Header Bar */}
-        <div className="bg-obsidian-elevated/80 px-4 py-3 flex items-center justify-between text-xs text-text-secondary border-b border-obsidian-border select-none">
+        <div className="bg-neo-elevated px-4 py-3 flex items-center justify-between text-xs text-neo-text-secondary border-b-3 border-neo-border select-none">
           <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F56] border border-[#E0443E]" />
-            <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E] border border-[#DEA123]" />
-            <span className="w-2.5 h-2.5 rounded-full bg-[#27C93F] border border-[#1AAB29]" />
+            <span className="w-3 h-3 rounded-full bg-[#FF5F56] border-2 border-neo-border" />
+            <span className="w-3 h-3 rounded-full bg-[#FFBD2E] border-2 border-neo-border" />
+            <span className="w-3 h-3 rounded-full bg-[#27C93F] border-2 border-neo-border" />
           </div>
-          <span className="font-mono font-medium opacity-80">fadhil@bash:~</span>
+          <span className="font-mono font-bold">fadhil@bash:~</span>
           <div className="w-8" />
         </div>
 
         {/* Terminal Output */}
         <div
           ref={historyRef}
-          className="p-6 h-[320px] text-xs font-mono leading-relaxed overflow-y-auto text-text-secondary flex flex-col justify-between scroll-smooth scrollbar-thin"
+          className="p-6 h-[320px] text-xs font-mono leading-relaxed overflow-y-auto text-neo-text-secondary flex flex-col justify-between scroll-smooth scrollbar-thin"
           onClick={() => inputRef.current?.focus()}
         >
           <div className="space-y-3">
             {commands.length === 0 && (
               <div>
-                Type <span className="text-electric-indigo font-bold">help</span> to explore available commands.
+                Type <span className="text-neo-accent font-bold">help</span> to explore available commands.
               </div>
             )}
             {commands.map((cmd, i) => (
               <div key={i} className="space-y-1">
                 <div className="flex items-center gap-2">
-                  <span className="text-electric-indigo font-bold whitespace-nowrap">fadhil@bash:~$</span>
+                  <span className="text-neo-accent font-bold whitespace-nowrap">fadhil@bash:~$</span>
                   <span>{cmd.input}</span>
                 </div>
                 {cmd.output && (
-                  <pre className="text-text-secondary whitespace-pre-wrap font-mono text-[11px] leading-relaxed">
+                  <pre className="text-neo-text-secondary whitespace-pre-wrap font-mono text-[11px] leading-relaxed">
                     {cmd.output}
                   </pre>
                 )}
@@ -105,15 +107,15 @@ export default function Terminal() {
           </div>
 
           {/* Prompt */}
-          <div className="flex items-center gap-2 pt-2 border-t border-obsidian-border/30 mt-4">
-            <span className="text-electric-indigo font-bold whitespace-nowrap">fadhil@bash:~$</span>
+          <div className="flex items-center gap-2 pt-2 border-t-2 border-neo-border/30 mt-4">
+            <span className="text-neo-accent font-bold whitespace-nowrap">fadhil@bash:~$</span>
             <input
               ref={inputRef}
               type="text"
               value={input}
               onChange={e => setInput(e.target.value)}
               onKeyDown={handleCommand}
-              className="bg-transparent border-none outline-none text-text-primary flex-1 caret-electric-indigo font-mono text-xs w-full"
+              className="bg-transparent border-none outline-none text-neo-text-primary flex-1 caret-neo-accent font-mono text-xs w-full"
               autoComplete="off"
               autoCorrect="off"
               autoCapitalize="off"

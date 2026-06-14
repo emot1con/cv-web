@@ -15,7 +15,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-20 lg:py-32 border-t border-obsidian-border bg-obsidian-bg relative overflow-hidden"
+      className="py-20 lg:py-32 border-t-3 border-neo-border bg-neo-bg relative overflow-hidden"
     >
       <motion.div
         className="container mx-auto px-4 lg:px-8 relative z-10"
@@ -26,13 +26,13 @@ export default function Contact() {
       >
         {/* Header */}
         <motion.div className="max-w-3xl mx-auto text-center mb-16 space-y-4" variants={fadeInUp}>
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-obsidian-surface border border-obsidian-border rounded-full">
-            <span className="text-xs font-semibold font-mono tracking-widest text-text-secondary uppercase">
+          <div className="neo-badge inline-flex mx-auto">
+            <span className="text-xs font-bold font-mono tracking-widest uppercase">
               Let's Connect
             </span>
           </div>
-          <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-text-primary">Get In Touch</h2>
-          <p className="text-sm text-text-muted leading-relaxed font-mono uppercase tracking-widest">
+          <h2 className="text-3xl lg:text-4xl font-extrabold tracking-tight text-neo-text-primary font-heading">Get In Touch</h2>
+          <p className="text-sm text-neo-text-muted leading-relaxed font-mono uppercase tracking-widest">
             Available for new opportunities
           </p>
         </motion.div>
@@ -40,10 +40,10 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start max-w-5xl mx-auto">
           {/* Left Column */}
           <motion.div className="lg:col-span-5 space-y-6" variants={slideInLeft}>
-            <h3 className="text-xl font-bold text-text-primary tracking-tight">
+            <h3 className="text-xl font-extrabold text-neo-text-primary tracking-tight font-heading">
               Let's create something amazing together.
             </h3>
-            <p className="text-sm text-text-secondary leading-relaxed">
+            <p className="text-sm text-neo-text-secondary leading-relaxed">
               Have a project in mind, want to discuss software systems, or simply want to chat? Fill out
               the transmission board, or connect directly via WhatsApp.
             </p>
@@ -52,9 +52,9 @@ export default function Contact() {
               href="https://wa.me/6281369051268"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-obsidian-surface hover:bg-obsidian-elevated border border-obsidian-border hover:border-slate-400 text-text-primary px-6 py-3 rounded-lg font-medium transition-all duration-200"
+              className="neo-btn-secondary"
             >
-              <i className="bx bxl-whatsapp text-lg text-electric-emerald" />
+              <i className="bx bxl-whatsapp text-lg text-neo-success" />
               <span>WhatsApp Direct</span>
             </a>
           </motion.div>
@@ -65,44 +65,44 @@ export default function Contact() {
               {!submitted ? (
                 <div className="space-y-6 relative z-10">
                   <div className="space-y-1">
-                    <h4 className="text-lg font-bold text-text-primary tracking-tight">Send a message</h4>
-                    <p className="text-xs text-text-muted font-mono">EST RESPONSE TIME: 2-24 HOURS</p>
+                    <h4 className="text-lg font-extrabold text-neo-text-primary tracking-tight font-heading">Send a message</h4>
+                    <p className="text-xs text-neo-text-muted font-mono font-bold">EST RESPONSE TIME: 2-24 HOURS</p>
                   </div>
 
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-1.5">
-                        <label className="text-xs font-semibold font-mono tracking-wider text-text-secondary uppercase">
+                        <label className="text-xs font-bold font-mono tracking-wider text-neo-text-secondary uppercase">
                           Your Name
                         </label>
                         <input
                           name="name"
                           type="text"
-                          className="dark-input"
+                          className="neo-input"
                           placeholder="John Doe"
                           required
                         />
                       </div>
                       <div className="space-y-1.5">
-                        <label className="text-xs font-semibold font-mono tracking-wider text-text-secondary uppercase">
+                        <label className="text-xs font-bold font-mono tracking-wider text-neo-text-secondary uppercase">
                           Email Address
                         </label>
                         <input
                           name="email"
                           type="email"
-                          className="dark-input"
+                          className="neo-input"
                           placeholder="john@example.com"
                           required
                         />
                       </div>
                     </div>
                     <div className="space-y-1.5">
-                      <label className="text-xs font-semibold font-mono tracking-wider text-text-secondary uppercase">
+                      <label className="text-xs font-bold font-mono tracking-wider text-neo-text-secondary uppercase">
                         Message
                       </label>
                       <textarea
                         name="message"
-                        className="dark-input min-h-[120px] resize-none"
+                        className="neo-input min-h-[120px] resize-none"
                         placeholder="Tell me about your project..."
                         required
                       />
@@ -110,7 +110,7 @@ export default function Contact() {
 
                     <button
                       type="submit"
-                      className="w-full inline-flex items-center justify-center bg-text-primary text-obsidian-bg hover:bg-slate-200 px-6 py-3.5 rounded-lg font-semibold tracking-tight transition-all duration-200 hover:scale-[1.01]"
+                      className="neo-btn w-full"
                     >
                       <div className="flex items-center gap-2">
                         <i className="bx bx-send text-base" />
@@ -121,12 +121,15 @@ export default function Contact() {
                 </div>
               ) : (
                 <div className="text-center py-12 space-y-4 relative z-10 animate-fade-in-up">
-                  <div className="w-12 h-12 rounded-full bg-electric-emerald/10 border border-electric-emerald/30 flex items-center justify-center mx-auto text-electric-emerald">
+                  <div
+                    className="w-14 h-14 rounded-md bg-neo-success/20 border-2 border-neo-success flex items-center justify-center mx-auto text-neo-success"
+                    style={{ boxShadow: '3px 3px 0px var(--color-neo-shadow)' }}
+                  >
                     <i className="bx bx-check text-2xl" />
                   </div>
                   <div className="space-y-1.5">
-                    <h4 className="text-lg font-bold text-text-primary tracking-tight">Transmission Successful</h4>
-                    <p className="text-sm text-text-secondary max-w-sm mx-auto">
+                    <h4 className="text-lg font-extrabold text-neo-text-primary tracking-tight font-heading">Transmission Successful</h4>
+                    <p className="text-sm text-neo-text-secondary max-w-sm mx-auto">
                       Your message has been sent. I will review it and get back to you shortly.
                     </p>
                   </div>

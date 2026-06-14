@@ -13,7 +13,7 @@ export default function Projects() {
     <>
       <section
         id="project"
-        className="py-20 lg:py-32 border-t border-obsidian-border bg-obsidian-surface/10 relative overflow-hidden"
+        className="py-20 lg:py-32 border-t-3 border-neo-border relative overflow-hidden"
       >
         <motion.div
           className="container mx-auto px-4 lg:px-8 relative z-10"
@@ -24,13 +24,13 @@ export default function Projects() {
         >
           {/* Header */}
           <motion.div className="max-w-3xl mx-auto text-center mb-16 space-y-4" variants={fadeInUp}>
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-obsidian-surface border border-obsidian-border rounded-full">
-              <span className="text-xs font-semibold font-mono tracking-widest text-text-secondary uppercase">
+            <div className="neo-badge inline-flex mx-auto">
+              <span className="text-xs font-bold font-mono tracking-widest uppercase">
                 My Work
               </span>
             </div>
-            <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-text-primary">Featured Projects</h2>
-            <p className="text-sm text-text-muted leading-relaxed font-mono uppercase tracking-widest">
+            <h2 className="text-3xl lg:text-4xl font-extrabold tracking-tight text-neo-text-primary font-heading">Featured Projects</h2>
+            <p className="text-sm text-neo-text-muted leading-relaxed font-mono uppercase tracking-widest">
               Sleek designs & creative engineering
             </p>
           </motion.div>
@@ -45,19 +45,19 @@ export default function Projects() {
                     className="p-6 space-y-4"
                   >
                     {/* Image */}
-                    <div className="aspect-video bg-obsidian-elevated rounded-lg overflow-hidden border border-obsidian-border flex items-center justify-center">
-                      <i className="bx bx-code-alt text-3xl text-text-muted" />
+                    <div className="aspect-video bg-neo-elevated rounded-md overflow-hidden border-2 border-neo-border flex items-center justify-center">
+                      <i className="bx bx-code-alt text-3xl text-neo-text-muted" />
                     </div>
 
                     {/* Content */}
                     <div className="space-y-2">
-                      <div className="flex items-center gap-2 text-[10px] font-semibold font-mono tracking-widest text-electric-indigo uppercase">
-                        <span>{project.date}</span>
-                        <span className="text-text-muted">•</span>
-                        <span className="text-text-secondary">{project.role}</span>
+                      <div className="flex items-center gap-2 text-[10px] font-bold font-mono tracking-widest uppercase">
+                        <span className="text-neo-accent">{project.date}</span>
+                        <span className="text-neo-text-muted">•</span>
+                        <span className="text-neo-text-secondary">{project.role}</span>
                       </div>
-                      <h3 className="text-lg font-bold text-text-primary tracking-tight">{project.title}</h3>
-                      <p className="text-sm text-text-secondary leading-relaxed">{project.shortDesc}</p>
+                      <h3 className="text-lg font-extrabold text-neo-text-primary tracking-tight font-heading">{project.title}</h3>
+                      <p className="text-sm text-neo-text-secondary leading-relaxed">{project.shortDesc}</p>
                     </div>
 
                     {/* Tech Tags */}
@@ -65,13 +65,13 @@ export default function Projects() {
                       {project.techStack.slice(0, 3).map((tech) => (
                         <span
                           key={tech}
-                          className="text-[10px] font-mono font-semibold px-2 py-0.5 bg-obsidian-elevated border border-obsidian-border rounded text-text-secondary"
+                          className="text-[10px] font-mono font-bold px-2 py-0.5 bg-neo-elevated border-2 border-neo-border rounded-md text-neo-text-secondary"
                         >
                           {tech}
                         </span>
                       ))}
                       {project.techStack.length > 3 && (
-                        <span className="text-[10px] font-mono font-semibold px-2 py-0.5 text-text-muted">
+                        <span className="text-[10px] font-mono font-bold px-2 py-0.5 text-neo-text-muted">
                           +{project.techStack.length - 3}
                         </span>
                       )}

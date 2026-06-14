@@ -14,9 +14,9 @@ const items: CommandItem[] = [
 ];
 
 const CATEGORY_COLORS: Record<string, string> = {
-  'Navigation': 'text-electric-indigo border-electric-indigo/30',
-  'Sub-Portal': 'text-electric-cyan border-electric-cyan/30',
-  'External': 'text-electric-emerald border-electric-emerald/30',
+  'Navigation': 'text-neo-accent border-neo-accent',
+  'Sub-Portal': 'text-neo-accent-tertiary border-neo-accent-tertiary',
+  'External': 'text-neo-success border-neo-success',
 };
 
 export default function CommandPalette() {
@@ -90,38 +90,44 @@ export default function CommandPalette() {
       {/* Floating FAB */}
       <button
         onClick={() => setOpen(true)}
-        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[90] flex items-center justify-center gap-2.5 p-3.5 sm:px-4 sm:py-3 bg-obsidian-surface/95 backdrop-blur-md border border-obsidian-border hover:border-electric-indigo/40 rounded-full shadow-lg shadow-black/40 text-text-secondary hover:text-text-primary transition-all duration-300 hover:scale-105 active:scale-95 text-xs font-semibold select-none"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[90] flex items-center justify-center gap-2.5 p-3.5 sm:px-4 sm:py-3 bg-neo-surface border-2 border-neo-border rounded-md text-neo-text-secondary hover:text-neo-text-primary transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] text-xs font-bold select-none"
+        style={{ boxShadow: '3px 3px 0px var(--color-neo-shadow)' }}
       >
-        <i className="bx bx-terminal text-xl sm:text-sm text-electric-indigo" />
+        <i className="bx bx-terminal text-xl sm:text-sm text-neo-accent" />
         <span className="hidden sm:inline">Command Center</span>
-        <kbd className="hidden sm:inline-block px-1.5 py-0.5 font-mono text-[9px] text-text-secondary bg-obsidian-bg border border-obsidian-border rounded">
+        <kbd className="hidden sm:inline-block px-1.5 py-0.5 font-mono text-[9px] text-neo-text-secondary bg-neo-bg border-2 border-neo-border rounded-md font-bold">
           Ctrl+K
         </kbd>
       </button>
 
       {/* Backdrop */}
       <div
-        className="fixed inset-0 z-[100] flex items-start justify-center pt-[15vh] px-4 opacity-100 pointer-events-auto transition-all duration-300 backdrop-blur-sm bg-black/60"
+        className="fixed inset-0 z-[100] flex items-start justify-center pt-[15vh] px-4 opacity-100 pointer-events-auto transition-all duration-200 bg-black/70"
         onMouseDown={(e) => {
           if (e.target === e.currentTarget) setOpen(false);
         }}
       >
         {/* Palette Box */}
-        <div className="w-full max-w-lg bg-obsidian-surface/95 border border-obsidian-border rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[450px] animate-fade-in-down">
+        <div
+          className="w-full max-w-lg bg-neo-surface border-3 border-neo-border rounded-lg overflow-hidden flex flex-col max-h-[450px] animate-fade-in-down"
+          style={{ boxShadow: '6px 6px 0px var(--color-neo-shadow)' }}
+        >
           {/* Search */}
-          <div className="flex items-center gap-3 px-4 py-3.5 border-b border-obsidian-border/50 bg-obsidian-elevated/40">
-            <i className="bx bx-search text-text-muted text-lg" />
+          <div className="flex items-center gap-3 px-4 py-3.5 border-b-3 border-neo-border bg-neo-elevated">
+            <i className="bx bx-search text-neo-text-muted text-lg" />
             <input
               ref={inputRef}
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search navigation shortcuts... (Arrow keys to traverse)"
-              className="bg-transparent border-none outline-none text-sm text-text-primary placeholder-slate-500 flex-1 font-sans"
+              placeholder="Search navigation shortcuts..."
+              className="bg-transparent border-none outline-none text-sm text-neo-text-primary placeholder-neo-text-muted flex-1 font-body font-bold"
               autoComplete="off"
               spellCheck="false"
             />
-            <kbd className="hidden sm:inline-block px-1.5 py-0.5 font-mono text-[10px] text-text-secondary bg-obsidian-surface border border-obsidian-border rounded">
+            <kbd
+              className="hidden sm:inline-block px-1.5 py-0.5 font-mono text-[10px] text-neo-text-secondary bg-neo-surface border-2 border-neo-border rounded-md font-bold"
+            >
               ESC
             </kbd>
           </div>
@@ -129,7 +135,7 @@ export default function CommandPalette() {
           {/* Results */}
           <div className="flex-1 overflow-y-auto p-2 space-y-1 scroll-smooth scrollbar-thin">
             {filtered.length === 0 ? (
-              <div className="text-center py-8 text-xs text-text-muted font-mono">
+              <div className="text-center py-8 text-xs text-neo-text-muted font-mono font-bold">
                 No shortcuts matched your search query.
               </div>
             ) : (
@@ -137,23 +143,23 @@ export default function CommandPalette() {
                 <div
                   key={item.title}
                   onClick={() => handleSelect(item)}
-                  className={`flex items-center justify-between px-3 py-2.5 rounded-lg border text-xs font-semibold cursor-pointer transition-all duration-150 ${
+                  className={`flex items-center justify-between px-3 py-2.5 rounded-md border-2 text-xs font-bold cursor-pointer transition-all duration-100 ${
                     idx === selectedIndex
-                      ? 'bg-electric-indigo/10 border-electric-indigo/35 text-text-primary'
-                      : 'border-transparent text-text-secondary hover:text-text-primary hover:bg-obsidian-surface/60'
+                      ? 'bg-neo-accent/10 border-neo-accent text-neo-text-primary shadow-[2px_2px_0px_var(--color-neo-shadow)]'
+                      : 'border-transparent text-neo-text-secondary hover:text-neo-text-primary hover:bg-neo-elevated hover:border-neo-border'
                   }`}
                 >
                   <div className="flex items-center gap-3">
                     <i
                       className={`bx ${item.icon} text-base ${
-                        idx === selectedIndex ? 'text-electric-indigo' : 'text-text-muted'
+                        idx === selectedIndex ? 'text-neo-accent' : 'text-neo-text-muted'
                       }`}
                     />
                     <span>{item.title}</span>
                   </div>
                   <span
-                    className={`text-[9px] font-mono tracking-widest uppercase bg-obsidian-surface px-1.5 py-0.5 rounded border ${
-                      CATEGORY_COLORS[item.category] || 'text-text-muted border-obsidian-border'
+                    className={`text-[9px] font-mono tracking-widest uppercase bg-neo-surface px-1.5 py-0.5 rounded-md border-2 font-bold ${
+                      CATEGORY_COLORS[item.category] || 'text-neo-text-muted border-neo-border'
                     }`}
                   >
                     {item.category}
@@ -164,7 +170,7 @@ export default function CommandPalette() {
           </div>
 
           {/* Footer */}
-          <div className="px-4 py-2 bg-obsidian-elevated/20 border-t border-obsidian-border/30 flex items-center justify-between text-[10px] text-text-muted font-mono">
+          <div className="px-4 py-2 bg-neo-elevated border-t-2 border-neo-border flex items-center justify-between text-[10px] text-neo-text-muted font-mono font-bold">
             <div className="flex items-center gap-3">
               <span>↑↓ Navigate</span>
               <span>↵ Select</span>

@@ -21,13 +21,13 @@ export default function ProjectsPage() {
           viewport={{ once: true, margin: "-100px" }}
         >
           <motion.div className="max-w-3xl mx-auto text-center mb-16 space-y-4" variants={fadeInUp}>
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-obsidian-surface border border-obsidian-border rounded-full">
-              <span className="text-xs font-semibold font-mono tracking-widest text-text-secondary uppercase">
+            <div className="neo-badge inline-flex mx-auto">
+              <span className="text-xs font-bold font-mono tracking-widest uppercase">
                 Achievements
               </span>
             </div>
-            <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-text-primary">Verified Certifications</h2>
-            <p className="text-sm text-text-muted leading-relaxed font-mono uppercase tracking-widest">
+            <h2 className="text-3xl lg:text-4xl font-extrabold tracking-tight text-neo-text-primary font-heading">Verified Certifications</h2>
+            <p className="text-sm text-neo-text-muted leading-relaxed font-mono uppercase tracking-widest">
               Verified professional credentials and accomplishments across Web Frameworks, Mobile Architecture, Cloud Infrastructure, and general IT systems.
             </p>
           </motion.div>
@@ -36,23 +36,23 @@ export default function ProjectsPage() {
             {certificates.map((cert) => (
               <motion.div key={cert.id} variants={scaleIn}>
                 <SpotlightCard className="p-6 space-y-4 h-full">
-                  <div className="aspect-video bg-obsidian-elevated rounded-lg border border-obsidian-border flex items-center justify-center">
-                    <i className="bx bx-medal text-4xl text-text-muted" />
+                  <div className="aspect-video bg-neo-elevated rounded-md border-2 border-neo-border flex items-center justify-center">
+                    <i className="bx bx-medal text-4xl text-neo-text-muted" />
                   </div>
                   <div className="space-y-1.5">
-                    <span className="text-[10px] font-mono font-semibold tracking-widest text-electric-indigo uppercase">
+                    <span className="text-[10px] font-mono font-bold tracking-widest text-neo-accent uppercase">
                       {cert.category}
                     </span>
-                    <h3 className="text-base font-bold text-text-primary">{cert.title}</h3>
-                    <p className="text-xs text-text-secondary">{cert.issuer}</p>
-                    <p className="text-xs text-text-muted font-mono">{cert.date}</p>
+                    <h3 className="text-base font-extrabold text-neo-text-primary font-heading">{cert.title}</h3>
+                    <p className="text-xs text-neo-text-secondary">{cert.issuer}</p>
+                    <p className="text-xs text-neo-text-muted font-mono font-bold">{cert.date}</p>
                   </div>
                   {cert.credentialUrl && (
                     <a
                       href={cert.credentialUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold font-mono text-electric-indigo hover:text-text-primary transition-colors"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold font-mono text-neo-accent hover:text-neo-accent-secondary transition-colors underline decoration-2"
                     >
                       <span>View Credential</span>
                       <i className="bx bx-link-external text-sm" />
@@ -66,7 +66,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* Experience Section */}
-      <section className="py-20 lg:py-32 border-t border-obsidian-border relative">
+      <section className="py-20 lg:py-32 border-t-3 border-neo-border relative">
         <motion.div
           className="container mx-auto px-4 lg:px-8 relative z-10"
           variants={staggerContainer}
@@ -75,13 +75,13 @@ export default function ProjectsPage() {
           viewport={{ once: true, margin: "-100px" }}
         >
           <motion.div className="max-w-3xl mx-auto text-center mb-16 space-y-4" variants={fadeInUp}>
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-obsidian-surface border border-obsidian-border rounded-full">
-              <span className="text-xs font-semibold font-mono tracking-widest text-text-secondary uppercase">
+            <div className="neo-badge inline-flex mx-auto">
+              <span className="text-xs font-bold font-mono tracking-widest uppercase">
                 Career Map
               </span>
             </div>
-            <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-text-primary">Professional Experience</h2>
-            <p className="text-sm text-text-muted leading-relaxed font-mono uppercase tracking-widest">
+            <h2 className="text-3xl lg:text-4xl font-extrabold tracking-tight text-neo-text-primary font-heading">Professional Experience</h2>
+            <p className="text-sm text-neo-text-muted leading-relaxed font-mono uppercase tracking-widest">
               A timeline tracking my experience across software engineering, academic systems, and community contributions.
             </p>
           </motion.div>
@@ -93,22 +93,24 @@ export default function ProjectsPage() {
                   <div className="space-y-4">
                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
                       <div className="space-y-1">
-                        <h3 className="text-lg font-bold text-text-primary">{exp.role}</h3>
-                        <p className="text-sm text-text-secondary">{exp.company}</p>
-                        <div className="flex items-center gap-2 text-xs text-text-muted font-mono">
+                        <h3 className="text-lg font-extrabold text-neo-text-primary font-heading">{exp.role}</h3>
+                        <p className="text-sm text-neo-text-secondary font-bold">{exp.company}</p>
+                        <div className="flex items-center gap-2 text-xs text-neo-text-muted font-mono font-bold">
                           <i className="bx bx-map-pin" />
                           <span>{exp.location}</span>
                         </div>
                       </div>
-                      <span className="text-xs font-mono text-electric-indigo font-semibold whitespace-nowrap">
+                      <span
+                        className="neo-badge text-xs whitespace-nowrap"
+                      >
                         {exp.period}
                       </span>
                     </div>
 
                     <ul className="space-y-2">
                       {exp.description.map((desc, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-text-secondary">
-                          <i className="bx bx-chevron-right text-electric-indigo text-sm mt-0.5 shrink-0" />
+                        <li key={i} className="flex items-start gap-2 text-sm text-neo-text-secondary">
+                          <i className="bx bx-chevron-right text-neo-accent text-sm mt-0.5 shrink-0" />
                           <span>{desc}</span>
                         </li>
                       ))}
@@ -118,7 +120,7 @@ export default function ProjectsPage() {
                       {exp.techStack.map((tech) => (
                         <span
                           key={tech}
-                          className="text-[10px] font-mono font-semibold px-2 py-0.5 bg-obsidian-elevated border border-obsidian-border rounded text-text-secondary"
+                          className="text-[10px] font-mono font-bold px-2 py-0.5 bg-neo-elevated border-2 border-neo-border rounded-md text-neo-text-secondary"
                         >
                           {tech}
                         </span>

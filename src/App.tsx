@@ -5,7 +5,6 @@ import { ThemeProvider } from './hooks/useTheme';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import CommandPalette from './components/CommandPalette';
-import CustomCursor from './components/CustomCursor';
 import Preloader from './components/Preloader';
 import BackToTop from './components/BackToTop';
 import PageTransition from './components/PageTransition';
@@ -25,13 +24,15 @@ function AnimatedRoutes() {
         key={location.pathname}
         fallback={
           <div className="min-h-screen flex items-center justify-center">
-            <div className="flex items-center gap-3 text-xs font-mono text-text-muted">
-              <div className="flex gap-1">
+            <div className="flex items-center gap-3 text-sm font-bold font-mono text-neo-text-muted">
+              <div className="flex gap-1.5">
                 {[0, 1, 2].map((i) => (
                   <span
                     key={i}
-                    className="w-1.5 h-1.5 rounded-full bg-electric-indigo/50 animate-pulse"
-                    style={{ animationDelay: `${i * 0.15}s` }}
+                    className="w-2.5 h-2.5 bg-neo-accent border-2 border-neo-border"
+                    style={{
+                      animation: `neo-bounce 0.6s ease-in-out ${i * 0.15}s infinite`,
+                    }}
                   />
                 ))}
               </div>
@@ -76,9 +77,7 @@ export default function App() {
     <ThemeProvider>
       <BrowserRouter>
         <Preloader />
-        <CustomCursor />
-        <div className="dotted-grid min-h-screen relative">
-          <div className="fixed inset-0 noise-overlay pointer-events-none z-[9999]" />
+        <div className="min-h-screen relative">
           <Navbar />
           <AnimatedRoutes />
           <Footer />
