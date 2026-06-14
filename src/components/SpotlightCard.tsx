@@ -52,7 +52,7 @@ export default function SpotlightCard({ children, className = '' }: SpotlightCar
         className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-300 z-0"
         style={{
           opacity,
-          background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(233, 69, 96, 0.15), transparent 40%)`,
+          background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, var(--color-neo-spotlight), transparent 40%)`,
         }}
       />
       <div className="relative z-10 h-full">{children}</div>

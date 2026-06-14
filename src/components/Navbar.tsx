@@ -59,7 +59,7 @@ export default function Navbar() {
   return (
     <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[100] w-[95%] sm:w-auto flex justify-center">
       <motion.nav 
-        className={`flex items-center justify-between sm:justify-start gap-2 sm:gap-4 px-4 sm:px-6 py-1 sm:py-1 rounded-xl transition-all duration-300 w-full sm:w-auto bg-neo-surface/90 backdrop-blur-md border border-neo-border ${
+        className={`flex items-center justify-between sm:justify-start gap-3 sm:gap-5 px-5 sm:px-8 py-1 sm:py-1 rounded-xl transition-all duration-300 w-full sm:w-auto bg-neo-surface/90 backdrop-blur-md border border-neo-border ${
           scrolled 
             ? 'shadow-[0_8px_32px_rgba(0,0,0,0.12)]' 
             : 'shadow-[0_4px_16px_rgba(0,0,0,0.08)]'
@@ -71,11 +71,11 @@ export default function Navbar() {
         {/* Logo */}
         <Link 
           to="/" 
-          className={`flex items-center pl-1 pr-3 sm:pr-4 border-r transition-colors shrink-0 ${
+          className={`flex items-center pl-1.5 pr-4 sm:pr-5 border-r transition-colors shrink-0 ${
             theme === 'light' ? 'border-neo-border' : 'border-white/10'
           }`}
         >
-          <span className={`font-bold font-mono tracking-tight text-sm sm:text-base ${
+          <span className={`font-bold font-mono tracking-tight text-xs sm:text-sm md:text-base ${
             theme === 'light' ? 'text-neo-text-primary' : 'text-white'
           }`}>
             <span className="text-[#fbbc05]">~/</span>portfolio
@@ -93,8 +93,8 @@ export default function Navbar() {
                 key={link.id}
                 to={link.href}
                 onClick={() => handleNavClick(link.href)}
-                className={`h-8 sm:h-9 rounded-md text-xs sm:text-sm font-bold font-mono transition-all duration-300 flex items-center justify-center ${
-                  isActive ? 'px-3 sm:px-4' : 'w-8 sm:w-9'
+                className={`h-7.5 sm:h-8 rounded-md text-xs sm:text-xs lg:text-sm font-bold font-mono transition-all duration-300 flex items-center justify-center ${
+                  isActive ? 'px-4 sm:px-4.5' : 'w-7.5 sm:w-8.5'
                 } ${
                   isActive 
                     ? (theme === 'light' ? 'bg-neo-accent text-neo-text-primary' : 'bg-neo-accent text-white') 
@@ -103,7 +103,7 @@ export default function Navbar() {
                       : (theme === 'light' ? 'text-neo-text-secondary hover:text-neo-text-primary hover:bg-black/5' : 'text-white/70 hover:text-white hover:bg-white/10')
                 }`}
               >
-                <i className={`bx ${link.icon} text-base sm:text-lg shrink-0`} />
+                <i className={`bx ${link.icon} text-base sm:text-base lg:text-lg shrink-0`} />
                 <span className={`overflow-hidden whitespace-nowrap transition-all duration-300 ${isActive ? 'max-w-[100px] ml-1.5 opacity-100' : 'max-w-0 ml-0 opacity-0'}`}>
                   {link.label}
                 </span>
@@ -123,7 +123,7 @@ export default function Navbar() {
                 key={link.id}
                 to={link.href}
                 onClick={() => handleNavClick(link.href)}
-                className={`w-8 h-8 rounded-md flex items-center justify-center transition-all duration-200 ${
+                className={`w-7.5 h-7.5 rounded-md flex items-center justify-center transition-all duration-200 ${
                   isActive
                     ? (theme === 'light' ? 'bg-neo-accent text-neo-text-primary' : 'bg-neo-accent text-white')
                     : link.id === 'projects'
@@ -131,32 +131,32 @@ export default function Navbar() {
                       : (theme === 'light' ? 'text-neo-text-secondary hover:text-neo-text-primary hover:bg-black/5' : 'text-white/60 hover:text-white hover:bg-white/10')
                 }`}
               >
-                <i className={`bx ${link.icon} text-lg`} />
-              </Link>
+                <i className={`bx ${link.icon} text-base`} />
+               </Link>
              )
            })}
         </div>
 
         {/* Theme Toggle */}
-        <div className={`pl-2 sm:pl-4 border-l transition-colors shrink-0 ${
+        <div className={`pl-2 sm:pl-4.5 border-l transition-colors shrink-0 ${
           theme === 'light' ? 'border-neo-border' : 'border-white/10'
         }`}>
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
-            className={`w-8 h-8 sm:w-10 sm:h-10 rounded-md flex items-center justify-center transition-all duration-200 ${
+            className={`w-7.5 h-7.5 sm:w-8.5 sm:h-8.5 rounded-md flex items-center justify-center transition-all duration-200 ${
               theme === 'light' 
                 ? 'text-neo-text-secondary hover:text-neo-text-primary hover:bg-black/5'
                 : 'text-white/60 hover:text-white hover:bg-white/10'
             }`}
           >
             <i
-              className={`bx bx-sun text-lg sm:text-xl absolute transition-all duration-300 ${
+              className={`bx bx-sun text-base sm:text-lg absolute transition-all duration-300 ${
                 theme === 'light' ? 'scale-100 rotate-0 opacity-100' : 'scale-0 rotate-90 opacity-0'
               }`}
             />
             <i
-              className={`bx bx-moon text-lg sm:text-xl absolute transition-all duration-300 ${
+              className={`bx bx-moon text-base sm:text-lg absolute transition-all duration-300 ${
                 theme === 'dark' ? 'scale-100 rotate-0 opacity-100' : 'scale-0 -rotate-90 opacity-0'
               }`}
             />
