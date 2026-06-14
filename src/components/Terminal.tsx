@@ -31,8 +31,57 @@ const COMMANDS: Record<string, string> = {
 export default function Terminal() {
   const [commands, setCommands] = useState<Command[]>([]);
   const [input, setInput] = useState('');
+  const [hasInteracted, setHasInteracted] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const historyRef = useRef<HTMLDivElement>(null);
+
+  // Auto-type feature
+  useEffect(() => {
+    if (hasInteracted) return;
+
+    let isCancelled = false;
+    const sequence = ['about', 'skills', 'help'];
+
+    const runSequence = async () => {
+      // Initial delay before first command
+      await new Promise(r => setTimeout(r, 2000));
+      
+      for (let currentIndex = 0; currentIndex < sequence.length; currentIndex++) {
+        if (isCancelled || hasInteracted) return;
+        const cmdText = sequence[currentIndex];
+        
+        // Simulate typing
+        for (let i = 1; i <= cmdText.length; i++) {
+          if (isCancelled || hasInteracted) return;
+          setInput(cmdText.substring(0, i));
+          await new Promise(r => setTimeout(r, 100)); // typing speed
+        }
+        
+        // Small pause before pressing enter
+        await new Promise(r => setTimeout(r, 400));
+        if (isCancelled || hasInteracted) return;
+        
+        // Execute command
+        if (cmdText === 'clear') {
+          setCommands([]);
+        } else {
+          setCommands(prev => [...prev, { input: cmdText, output: COMMANDS[cmdText] || '' }]);
+        }
+        setInput('');
+        
+        // Wait before typing the next command
+        if (currentIndex < sequence.length - 1) {
+          await new Promise(r => setTimeout(r, 5000));
+        }
+      }
+    };
+
+    runSequence();
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [hasInteracted]);
 
   useEffect(() => {
     if (historyRef.current) {
@@ -42,6 +91,7 @@ export default function Terminal() {
 
   const handleCommand = (e: React.KeyboardEvent) => {
     if (e.key !== 'Enter') return;
+    setHasInteracted(true);
 
     const trimmed = input.trim().toLowerCase();
     let output = '';
@@ -113,7 +163,10 @@ export default function Terminal() {
               ref={inputRef}
               type="text"
               value={input}
-              onChange={e => setInput(e.target.value)}
+              onChange={e => {
+                setInput(e.target.value);
+                setHasInteracted(true);
+              }}
               onKeyDown={handleCommand}
               className="bg-transparent border-none outline-none text-neo-text-primary flex-1 caret-neo-accent font-mono text-xs w-full"
               autoComplete="off"
