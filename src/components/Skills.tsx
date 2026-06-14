@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { skillCategories } from '../data/skills';
-import SpotlightCard from './SpotlightCard';
-import { fadeInUp, staggerContainer, scaleIn } from '../lib/animations';
+import { fadeInUp, staggerContainer } from '../lib/animations';
 
 export default function Skills() {
   const allSkills = skillCategories.flatMap(cat => cat.skills);
@@ -33,7 +32,7 @@ export default function Skills() {
           </p>
         </motion.div>
 
-        <div className="mb-20 space-y-6 relative overflow-hidden marquee-container">
+        <div className="space-y-6 relative overflow-hidden marquee-container">
           {/* Fading edges for marquee */}
           <div className="absolute inset-y-0 left-0 w-12 md:w-32 bg-gradient-to-r from-obsidian-bg to-transparent z-10 pointer-events-none" />
           <div className="absolute inset-y-0 right-0 w-12 md:w-32 bg-gradient-to-l from-obsidian-bg to-transparent z-10 pointer-events-none" />
@@ -59,33 +58,6 @@ export default function Skills() {
               ))}
             </div>
           </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillCategories.map((cat) => (
-            <motion.div key={cat.title} variants={scaleIn}>
-              <SpotlightCard className="p-6 space-y-4 h-full">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-obsidian-elevated border border-obsidian-border flex items-center justify-center text-text-primary">
-                    <i className={`bx ${cat.icon} text-lg`} />
-                  </div>
-                  <h3 className="text-base font-semibold text-text-primary">{cat.title}</h3>
-                </div>
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {cat.skills.map((skill) => (
-                    <span key={skill.name} className="tech-badge">
-                      <img
-                        src={skill.icon}
-                        className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100"
-                        alt={skill.name}
-                      />
-                      {skill.name}
-                    </span>
-                  ))}
-                </div>
-              </SpotlightCard>
-            </motion.div>
-          ))}
         </div>
       </motion.div>
     </section>
