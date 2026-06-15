@@ -20,7 +20,7 @@ export default function Footer() {
           {/* Right */}
           <div className="flex items-center gap-3">
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/emot1con"
               target="_blank"
               rel="noopener noreferrer"
               className="w-9 h-9 flex items-center justify-center text-neo-text-muted hover:text-neo-text-primary border-2 border-neo-border rounded-md transition-all duration-150 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_var(--color-neo-shadow)] text-lg"
@@ -29,7 +29,7 @@ export default function Footer() {
               <i className="bx bxl-github" />
             </a>
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://www.linkedin.com/in/arqan-purusa-eryan/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-9 h-9 flex items-center justify-center text-neo-text-muted hover:text-neo-text-primary border-2 border-neo-border rounded-md transition-all duration-150 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_var(--color-neo-shadow)] text-lg"
@@ -38,7 +38,7 @@ export default function Footer() {
               <i className="bx bxl-linkedin" />
             </a>
             <a
-              href="mailto:youremail@gmail.com"
+              href="mailto:arqanpurusa@gmail.com"
               className="w-9 h-9 flex items-center justify-center text-neo-text-muted hover:text-neo-text-primary border-2 border-neo-border rounded-md transition-all duration-150 hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_var(--color-neo-shadow)] text-lg"
               style={{ boxShadow: '2px 2px 0px var(--color-neo-shadow)' }}
             >

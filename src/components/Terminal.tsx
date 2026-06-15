@@ -13,19 +13,19 @@ const COMMANDS: Record<string, string> = {
   contact   — Show contact information
   clear     — Clear terminal screen
   help      — Show this help message`,
-  about: `Fadhil Abdul Fattah
-  Informatics Engineering Student @ University of Lampung
-  Passionate about software engineering & system architecture.
+  about: `Arqan Purusa Eryan
+  Informatics Engineering Student @ Universitas Lampung
+  Passionate about distributed systems, system architecture, and backend engineering.
   Type 'skills' to see my tech stack.`,
-  skills: `Languages:    JavaScript, TypeScript, Java, Python, C++, Dart, PHP, Kotlin
-  Frameworks:   React, Node.js, Next.js, Flutter, Tailwind, Laravel
-  Tools:        Git, Docker, Redis, Figma, Postman, Neovim
-  Databases:    MySQL, PostgreSQL, MongoDB`,
-  projects: `Featured Projects: 20+ completed projects.
+  skills: `Languages:    Go, Python, JavaScript, TypeScript, C++
+  Frameworks:   Gin, React, Next.js, Node.js
+  Tools:        Git, Docker, Kubernetes, Kafka, Redis
+  Databases:    PostgreSQL, SQL Server, MySQL`,
+  projects: `Featured Projects: Check out Mistletoe, Distributed Transaction System, and CutURL.
   Navigate to the Projects section above for full details.`,
-  contact: `Email:   fadhil@example.com
-  WhatsApp: +62 813-6905-1268
-  LinkedIn: /in/fadhil-abdul-fattah`,
+  contact: `Email:   arqanpurusa@gmail.com
+  WhatsApp: +62 857-6937-1002
+  LinkedIn: /in/arqan-purusa-eryan`,
 };
 
 export default function Terminal() {
@@ -125,7 +125,7 @@ export default function Terminal() {
             <span className="w-3 h-3 rounded-full bg-[#FFBD2E] border-2 border-neo-border" />
             <span className="w-3 h-3 rounded-full bg-[#27C93F] border-2 border-neo-border" />
           </div>
-          <span className="font-mono font-bold">fadhil@bash:~</span>
+          <span className="font-mono font-bold">arqan@bash:~</span>
           <div className="w-8" />
         </div>
 
@@ -144,7 +144,7 @@ export default function Terminal() {
             {commands.map((cmd, i) => (
               <div key={i} className="space-y-1">
                 <div className="flex items-center gap-2">
-                  <span className="text-neo-accent font-bold whitespace-nowrap">fadhil@bash:~$</span>
+                  <span className="text-neo-accent font-bold whitespace-nowrap">arqan@bash:~$</span>
                   <span>{cmd.input}</span>
                 </div>
                 {cmd.output && (
@@ -158,7 +158,7 @@ export default function Terminal() {
 
           {/* Prompt */}
           <div className="flex items-center gap-2 pt-2 border-t-2 border-neo-border/30 mt-4">
-            <span className="text-neo-accent font-bold whitespace-nowrap">fadhil@bash:~$</span>
+            <span className="text-neo-accent font-bold whitespace-nowrap">arqan@bash:~$</span>
             <input
               ref={inputRef}
               type="text"

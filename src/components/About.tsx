@@ -63,22 +63,22 @@ export default function About() {
               </div>
               <div className="space-y-4 text-neo-text-secondary text-base leading-relaxed">
                 <p>
-                  My name is <span className="text-neo-text-primary font-bold">Your Name</span>. I am an Informatics Engineering Student at{' '}
-                  <a href="#" className="text-neo-accent font-bold underline decoration-2 decoration-neo-accent hover:text-neo-accent-secondary transition-colors">
-                    University
-                  </a>
+                  My name is <span className="text-neo-text-primary font-bold">Arqan Purusa Eryan</span>. I am an Informatics Engineering Student at{' '}
+                  <span className="text-neo-accent font-bold">
+                    Universitas Lampung
+                  </span>
                   . I possess a continuous curiosity about cutting-edge technology and engineering systems.
                 </p>
                 <p>
-                  Since starting my programming journey, I have focused on exploring software design and understanding
-                  architectural constructs. I believe that deliberate, continuous growth is the core element to delivering
-                  premium-grade digital experiences.
+                  Since starting my programming journey, I have focused on exploring software design, distributed systems, and understanding
+                  complex architectural constructs. I believe that deliberate, continuous growth is the core element to delivering
+                  premium-grade backend solutions.
                 </p>
               </div>
 
               <div className="flex items-center gap-2 text-xs text-neo-text-muted font-mono mt-6 font-bold">
                 <i className="bx bx-map-pin text-sm" />
-                <span>Your City, Indonesia</span>
+                <span>Bandar Lampung, Indonesia</span>
               </div>
             </SpotlightCard>
 
@@ -88,7 +88,7 @@ export default function About() {
                 <div className="text-xl font-bold text-neo-text-primary font-mono">2022</div>
                 <div className="text-xs text-neo-text-muted font-mono uppercase tracking-wider mt-1">Started Coding</div>
               </SpotlightCard>
-              <a href="https://wa.me/6281369051268" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/6285769371002" target="_blank" rel="noopener noreferrer">
                 <SpotlightCard className="p-5 text-center cursor-pointer">
                   <div className="text-xl font-bold text-neo-text-primary font-mono flex items-center justify-center gap-1 hover:text-neo-accent transition-colors">
                     <span>Connect</span>

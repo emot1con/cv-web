@@ -49,7 +49,7 @@ export default function Contact() {
             </p>
 
             <a
-              href="https://wa.me/6281369051268"
+              href="https://wa.me/6285769371002"
               target="_blank"
               rel="noopener noreferrer"
               className="neo-btn-secondary"

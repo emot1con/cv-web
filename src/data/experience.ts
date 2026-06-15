@@ -3,28 +3,15 @@ import type { Experience } from '../types';
 export const experiences: Experience[] = [
   {
     id: 1,
-    role: 'Software Engineer Intern',
-    company: 'Tech Company',
-    location: 'Jakarta, Indonesia',
-    period: 'Jun 2025 - Present',
+    role: 'Intern Backend Engineer',
+    company: 'UPT TIK Universitas Lampung',
+    location: 'Bandar Lampung',
+    period: 'Sep 2025 - Apr 2026',
     description: [
-      'Developed RESTful APIs serving 10k+ daily requests',
-      'Implemented CI/CD pipeline reducing deployment time by 60%',
-      'Collaborated with cross-functional team on microservices architecture',
+      'Implemented data synchronization from external APIs into SQL Server databases using concurrency patterns in Go.',
+      'Refactored legacy PHP-based APIs into Go services to improve maintainability, scalability, and code structure consistency.',
+      'Designed and developed RESTful APIs for internal campus system integration and data management.',
     ],
-    techStack: ['TypeScript', 'Node.js', 'PostgreSQL', 'Docker'],
-  },
-  {
-    id: 2,
-    role: 'Freelance Web Developer',
-    company: 'Self-Employed',
-    location: 'Lampung, Indonesia',
-    period: 'Jan 2024 - May 2025',
-    description: [
-      'Built 5+ full-stack web applications for local businesses',
-      'Designed responsive UIs improving mobile engagement by 40%',
-      'Managed end-to-end project lifecycle from requirements to deployment',
-    ],
-    techStack: ['React', 'Next.js', 'Laravel', 'MySQL'],
+    techStack: ['Go', 'SQL Server', 'REST API'],
   },
 ];

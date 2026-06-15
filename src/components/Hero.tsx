@@ -83,7 +83,7 @@ export default function Hero() {
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <a
-                href="#"
+                href="https://drive.google.com/file/d/1CePQ8Dvqd0W_zH94HdHam5QoF7Iq7fME/view?usp=sharing"
                 target="_blank"
                 className="neo-btn w-full sm:w-auto"
               >

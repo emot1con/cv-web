@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { certificates } from '../data/certificates';
 import { experiences } from '../data/experience';
@@ -7,6 +8,10 @@ import SpotlightCard from '../components/SpotlightCard';
 import { fadeInUp, staggerContainer, scaleIn } from '../lib/animations';
 
 export default function ProjectsPage() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, []);
+
   return (
     <main className="pt-20 lg:pt-24 pb-20 overflow-hidden">
       {/* Projects Section */}
