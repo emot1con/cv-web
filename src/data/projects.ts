@@ -6,7 +6,7 @@ export const projects: Project[] = [
     title: 'Mistletoe - AI Feature Impact Analyzer',
     shortDesc: 'AI-powered backend platform for analyzing software feature requests and generating impact estimation reports.',
     longDesc: 'Developed an AI-powered backend platform for analyzing software feature requests and generating impact estimation reports. It helps in understanding the estimated impact before starting development.',
-    image: '/img/placeholder-project.jpg',
+    image: '/img/projects/mistletoe.png',
     techStack: ['Go', 'Gin', 'PostgreSQL', 'Redis', 'Docker', 'Gemini API'],
     features: [
       'AI integration with Gemini API',
@@ -23,7 +23,7 @@ export const projects: Project[] = [
     title: 'Distributed Transaction System',
     shortDesc: 'Event-driven e-commerce microservices system for order and payment processing.',
     longDesc: 'Built a distributed microservices system for order and payment processing. Utilizes event-driven architecture with Kafka, ensuring data consistency and reliable transactions across services.',
-    image: '/img/placeholder-project.jpg',
+    image: '/img/projects/distributed-tx.png',
     techStack: ['Go', 'gRPC', 'Kafka', 'PostgreSQL', 'Redis', 'Kubernetes', 'Docker'],
     features: [
       'Microservices architecture with gRPC',
@@ -40,7 +40,7 @@ export const projects: Project[] = [
     title: 'CutURL',
     shortDesc: 'A fast and reliable URL shortening service with redirect tracking and analytics support.',
     longDesc: 'Developed a URL shortening service with redirect tracking and analytics support. It provides insights into link usage while ensuring rapid redirection using Redis caching.',
-    image: '/img/placeholder-project.jpg',
+    image: '/img/projects/cuturl.png',
     techStack: ['Go', 'Gin', 'PostgreSQL', 'Redis', 'Docker'],
     features: [
       'Fast URL redirection with Redis cache',

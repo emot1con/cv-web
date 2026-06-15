@@ -37,7 +37,7 @@ export default function About() {
                 style={{ boxShadow: '6px 6px 0px var(--color-neo-shadow)' }}
               >
                 <img
-                  src="/img/self.webp"
+                  src="/img/profile.webp"
                   alt="Profile"
                   width="720"
                   height="720"

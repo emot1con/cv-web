@@ -1,15 +1,47 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
 import SpotlightCard from './SpotlightCard';
 import { fadeInUp, staggerContainer, slideInLeft, slideInRight } from '../lib/animations';
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Placeholder — will be replaced with actual form backend
-    setSubmitted(true);
+    if (!formRef.current) return;
+
+    setLoading(true);
+    try {
+      const formData = new FormData(formRef.current);
+      const name = formData.get('name') as string;
+      const email = formData.get('email') as string;
+      const message = formData.get('message') as string;
+
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          name: name,
+          from_name: name,
+          user_name: name,
+          email: email,
+          from_email: email,
+          user_email: email,
+          reply_to: email,
+          message: message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+      setSubmitted(true);
+    } catch (error) {
+      console.error('Failed to send message:', error);
+      alert('Something went wrong. Please try again or contact me directly via WhatsApp.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -69,7 +101,7 @@ export default function Contact() {
                     <p className="text-xs text-neo-text-muted font-mono font-bold">EST RESPONSE TIME: 2-24 HOURS</p>
                   </div>
 
-                  <form onSubmit={handleSubmit} className="space-y-4">
+                  <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-1.5">
                         <label className="text-xs font-bold font-mono tracking-wider text-neo-text-secondary uppercase">
@@ -110,11 +142,18 @@ export default function Contact() {
 
                     <button
                       type="submit"
-                      className="neo-btn w-full"
+                      disabled={loading}
+                      className="neo-btn w-full disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      <div className="flex items-center gap-2">
-                        <i className="bx bx-send text-base" />
-                        <span>Send Message</span>
+                      <div className="flex items-center justify-center gap-2">
+                        {loading ? (
+                          <div className="w-5 h-5 border-2 border-neo-bg border-t-transparent rounded-full animate-spin" />
+                        ) : (
+                          <>
+                            <i className="bx bx-send text-base" />
+                            <span>Send Message</span>
+                          </>
+                        )}
                       </div>
                     </button>
                   </form>

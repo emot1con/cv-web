@@ -61,9 +61,13 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
       >
         {/* Banner */}
         <div className="relative aspect-video w-full bg-neo-elevated overflow-hidden border-b-3 border-neo-border">
-          <div className="w-full h-full bg-neo-elevated flex items-center justify-center">
-            <i className="bx bx-code-alt text-5xl text-neo-text-muted" />
-          </div>
+          {project.image && project.image !== '/img/placeholder-project.jpg' ? (
+            <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+          ) : (
+            <div className="w-full h-full bg-neo-elevated flex items-center justify-center">
+              <i className="bx bx-code-alt text-5xl text-neo-text-muted" />
+            </div>
+          )}
           <button
             onClick={handleClose}
             className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center bg-neo-surface border-2 border-neo-border text-neo-text-primary rounded-md transition-all duration-150 hover:bg-neo-accent hover:text-white"

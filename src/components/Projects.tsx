@@ -46,7 +46,11 @@ export default function Projects() {
                   >
                     {/* Image */}
                     <div className="aspect-video bg-neo-elevated rounded-md overflow-hidden border-2 border-neo-border flex items-center justify-center">
-                      <i className="bx bx-code-alt text-3xl text-neo-text-muted" />
+                      {project.image && project.image !== '/img/placeholder-project.jpg' ? (
+                        <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                      ) : (
+                        <i className="bx bx-code-alt text-3xl text-neo-text-muted" />
+                      )}
                     </div>
 
                     {/* Content */}
