@@ -59,11 +59,11 @@ export default function Navbar() {
   return (
     <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[100] w-[95%] sm:w-auto flex justify-center">
       <motion.nav 
-        className={`flex items-center justify-between sm:justify-start gap-3 sm:gap-5 px-5 sm:px-8 py-1 sm:py-1 rounded-xl transition-all duration-300 w-full sm:w-auto bg-neo-surface/90 backdrop-blur-md border border-neo-border ${
-          scrolled 
-            ? 'shadow-[0_8px_32px_rgba(0,0,0,0.12)]' 
-            : 'shadow-[0_4px_16px_rgba(0,0,0,0.08)]'
-        }`}
+        className={`flex items-center justify-between sm:justify-start gap-2 sm:gap-4 px-4 sm:px-6 py-2 rounded-xl transition-all duration-300 w-full sm:w-auto bg-neo-surface/95 backdrop-blur-md border-3 border-neo-border`}
+        style={{
+          boxShadow: scrolled ? '6px 6px 0px var(--color-neo-shadow)' : '4px 4px 0px var(--color-neo-shadow)',
+          transform: scrolled ? 'translateY(0)' : 'translateY(2px)'
+        }}
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ type: 'spring', stiffness: 300, damping: 25 }}
@@ -78,7 +78,7 @@ export default function Navbar() {
           <span className={`font-bold font-mono tracking-tight text-xs sm:text-sm md:text-base ${
             theme === 'light' ? 'text-neo-text-primary' : 'text-white'
           }`}>
-            <span className="text-[#fbbc05]">~/</span>portfolio
+            <span className="text-[#fbbc05]">~/</span>arqan
           </span>
         </Link>
 
@@ -93,8 +93,8 @@ export default function Navbar() {
                 key={link.id}
                 to={link.href}
                 onClick={() => handleNavClick(link.href)}
-                className={`h-7.5 sm:h-8 rounded-md text-xs sm:text-xs lg:text-sm font-bold font-mono transition-all duration-300 flex items-center justify-center ${
-                  isActive ? 'px-4 sm:px-4.5' : 'w-7.5 sm:w-8.5'
+                className={`h-8 sm:h-9 rounded-md text-xs sm:text-xs lg:text-sm font-bold font-mono transition-all duration-300 flex items-center justify-center hover:-translate-y-0.5 ${
+                  isActive ? 'px-4 sm:px-4.5' : 'w-8 sm:w-9'
                 } ${
                   isActive 
                     ? (theme === 'light' ? 'bg-neo-accent text-neo-text-primary' : 'bg-neo-accent text-white') 
@@ -123,7 +123,7 @@ export default function Navbar() {
                 key={link.id}
                 to={link.href}
                 onClick={() => handleNavClick(link.href)}
-                className={`w-7.5 h-7.5 rounded-md flex items-center justify-center transition-all duration-200 ${
+                className={`w-8 h-8 rounded-md flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5 ${
                   isActive
                     ? (theme === 'light' ? 'bg-neo-accent text-neo-text-primary' : 'bg-neo-accent text-white')
                     : link.id === 'projects'
@@ -144,7 +144,7 @@ export default function Navbar() {
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
-            className={`w-7.5 h-7.5 sm:w-8.5 sm:h-8.5 rounded-md flex items-center justify-center transition-all duration-200 ${
+            className={`w-8 h-8 sm:w-9 sm:h-9 rounded-md flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5 ${
               theme === 'light' 
                 ? 'text-neo-text-secondary hover:text-neo-text-primary hover:bg-black/5'
                 : 'text-white/60 hover:text-white hover:bg-white/10'
