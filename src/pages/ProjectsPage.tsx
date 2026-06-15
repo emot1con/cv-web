@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { certificates } from '../data/certificates';
 import { experiences } from '../data/experience';
@@ -8,6 +8,8 @@ import SpotlightCard from '../components/SpotlightCard';
 import { fadeInUp, staggerContainer, scaleIn } from '../lib/animations';
 
 export default function ProjectsPage() {
+  const [showAllCerts, setShowAllCerts] = useState(false);
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, []);
@@ -42,11 +44,21 @@ export default function ProjectsPage() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {certificates.map((cert) => (
-              <motion.div key={cert.id} variants={scaleIn}>
+            {(showAllCerts ? certificates : certificates.slice(0, 3)).map((cert) => (
+              <motion.div 
+                key={cert.id} 
+                variants={scaleIn}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
                 <SpotlightCard className="p-6 space-y-4 h-full">
-                  <div className="aspect-video bg-neo-elevated rounded-md border-2 border-neo-border flex items-center justify-center">
-                    <i className="bx bx-medal text-4xl text-neo-text-muted" />
+                  <div className="aspect-video bg-neo-elevated rounded-md border-2 border-neo-border flex items-center justify-center overflow-hidden p-2">
+                    {cert.image ? (
+                      <img src={cert.image} alt={cert.title} className="w-full h-full object-contain drop-shadow-sm" />
+                    ) : (
+                      <i className="bx bx-medal text-4xl text-neo-text-muted" />
+                    )}
                   </div>
                   <div className="space-y-1.5">
                     <span className="text-[10px] font-mono font-bold tracking-widest text-neo-accent uppercase">
@@ -71,6 +83,18 @@ export default function ProjectsPage() {
               </motion.div>
             ))}
           </div>
+
+          {certificates.length > 3 && (
+            <div className="flex justify-center mt-12">
+              <button
+                onClick={() => setShowAllCerts(!showAllCerts)}
+                className="neo-btn-secondary"
+              >
+                <span>{showAllCerts ? 'See Less' : 'See More'}</span>
+                <i className={`bx ${showAllCerts ? 'bx-chevron-up' : 'bx-chevron-down'} text-lg`} />
+              </button>
+            </div>
+          )}
         </motion.div>
       </section>
 
