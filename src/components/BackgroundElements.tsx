@@ -10,7 +10,7 @@ const elements = [
   { text: '||', left: '90%', top: '65%', speed: 0.7, scale: 1.0 },
   
   // Middle Section
-  { text: '=>', left: '8%', top: '80%', speed: 0.55, scale: 1.3 },
+  { text: '--', left: '8%', top: '80%', speed: 0.55, scale: 1.3 },
   { text: '++', left: '82%', top: '95%', speed: 0.9, scale: 1.1 },
   { text: '==', left: '25%', top: '110%', speed: 0.35, scale: 0.8 },
   { text: '()', left: '65%', top: '130%', speed: 0.65, scale: 1.2 },

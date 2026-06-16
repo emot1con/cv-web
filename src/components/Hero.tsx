@@ -74,16 +74,16 @@ export default function Hero() {
               style={{ boxShadow: '3px 3px 0px var(--color-neo-shadow)', borderLeftWidth: '6px', borderLeftColor: 'var(--color-neo-accent)' }}
             >
               <span className="italic">
-                "The technology you use impresses no one. The experience you create with it is everything."
+                "Code is like humor. When you have to explain it, it’s bad."
               </span>
               <span className="block text-xs font-mono font-bold tracking-widest uppercase text-neo-text-muted mt-2 not-italic">
-                — Sean Gerety
+                — Cory House
               </span>
             </div>
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-              <MagneticWrapper>
+              <MagneticWrapper className="w-full sm:w-auto">
                 <a
                   href="https://drive.google.com/file/d/1CePQ8Dvqd0W_zH94HdHam5QoF7Iq7fME/view?usp=sharing"
                   target="_blank"
@@ -93,7 +93,7 @@ export default function Hero() {
                   <span>Download Resume</span>
                 </a>
               </MagneticWrapper>
-              <MagneticWrapper>
+              <MagneticWrapper className="w-full sm:w-auto">
                 <a
                   href="#contact"
                   className="neo-btn-secondary w-full sm:w-auto"
