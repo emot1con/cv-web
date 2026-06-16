@@ -125,7 +125,7 @@ export default function Terminal() {
             <span className="w-3 h-3 rounded-full bg-[#FFBD2E] border-2 border-neo-border" />
             <span className="w-3 h-3 rounded-full bg-[#27C93F] border-2 border-neo-border" />
           </div>
-          <span className="font-mono font-bold">arqan@bash:~</span>
+          <span className="font-mono font-bold">numpyh@bash:~</span>
           <div className="w-8" />
         </div>
 
@@ -144,7 +144,7 @@ export default function Terminal() {
             {commands.map((cmd, i) => (
               <div key={i} className="space-y-1">
                 <div className="flex items-center gap-2">
-                  <span className="text-neo-accent font-bold whitespace-nowrap">arqan@bash:~$</span>
+                  <span className="text-neo-accent font-bold whitespace-nowrap">numpyh@bash:~$</span>
                   <span>{cmd.input}</span>
                 </div>
                 {cmd.output && (
@@ -158,7 +158,7 @@ export default function Terminal() {
 
           {/* Prompt */}
           <div className="flex items-center gap-2 pt-2 border-t-2 border-neo-border/30 mt-4">
-            <span className="text-neo-accent font-bold whitespace-nowrap">arqan@bash:~$</span>
+            <span className="text-neo-accent font-bold whitespace-nowrap">numpyh@bash:~$</span>
             <input
               ref={inputRef}
               type="text"

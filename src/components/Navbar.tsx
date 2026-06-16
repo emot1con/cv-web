@@ -78,7 +78,7 @@ export default function Navbar() {
           <span className={`font-bold font-mono tracking-tight text-xs sm:text-sm md:text-base ${
             theme === 'light' ? 'text-neo-text-primary' : 'text-white'
           }`}>
-            <span className="text-[#fbbc05]">~/</span>arqan
+            <span className="text-[#fbbc05]">~/</span>numpyh
           </span>
         </Link>
 
