@@ -4,6 +4,7 @@ import Terminal from './Terminal';
 import { useTypewriter } from '../hooks/useTypewriter';
 import { useCountUp } from '../hooks/useCountUp';
 import { fadeInUp, staggerContainer } from '../lib/animations';
+import MagneticWrapper from './MagneticWrapper';
 
 const ROLES = [
   'Software Engineer',
@@ -82,21 +83,25 @@ export default function Hero() {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-              <a
-                href="https://drive.google.com/file/d/1CePQ8Dvqd0W_zH94HdHam5QoF7Iq7fME/view?usp=sharing"
-                target="_blank"
-                className="neo-btn w-full sm:w-auto"
-              >
-                <i className="bx bx-download text-lg" />
-                <span>Download Resume</span>
-              </a>
-              <a
-                href="#contact"
-                className="neo-btn-secondary w-full sm:w-auto"
-              >
-                <span>Get In Touch</span>
-                <i className="bx bx-right-arrow-alt text-lg" />
-              </a>
+              <MagneticWrapper>
+                <a
+                  href="https://drive.google.com/file/d/1CePQ8Dvqd0W_zH94HdHam5QoF7Iq7fME/view?usp=sharing"
+                  target="_blank"
+                  className="neo-btn w-full sm:w-auto"
+                >
+                  <i className="bx bx-download text-lg" />
+                  <span>Download Resume</span>
+                </a>
+              </MagneticWrapper>
+              <MagneticWrapper>
+                <a
+                  href="#contact"
+                  className="neo-btn-secondary w-full sm:w-auto"
+                >
+                  <span>Get In Touch</span>
+                  <i className="bx bx-right-arrow-alt text-lg" />
+                </a>
+              </MagneticWrapper>
             </div>
 
             {/* Metrics — animated counters */}

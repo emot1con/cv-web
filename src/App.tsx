@@ -9,6 +9,7 @@ import Preloader from './components/Preloader';
 import BackToTop from './components/BackToTop';
 import PageTransition from './components/PageTransition';
 import CustomCursor from './components/CustomCursor';
+import BackgroundElements from './components/BackgroundElements';
 import Home from './pages/Home';
 
 // Lazy load secondary pages
@@ -102,6 +103,7 @@ export default function App() {
             }}
           />
 
+          <BackgroundElements />
           <CustomCursor />
           <Navbar />
           <AnimatedRoutes />

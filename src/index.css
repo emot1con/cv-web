@@ -145,8 +145,8 @@ body {
 }
 
 .neo-btn:active {
-  transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0px var(--color-neo-shadow);
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0px var(--color-neo-shadow);
 }
 
 /* ─── Neo Button — Secondary ─── */
@@ -174,8 +174,8 @@ body {
 }
 
 .neo-btn-secondary:active {
-  transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0px var(--color-neo-shadow);
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0px var(--color-neo-shadow);
 }
 
 /* ─── Neo Badge ─── */
@@ -291,4 +291,3 @@ body {
   display: flex;
   min-width: max-content;
 }
-
