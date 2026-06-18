@@ -44,7 +44,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
   return (
     <div
       id="project-detail-modal"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 opacity-100 pointer-events-auto transition-all duration-200 ease-out"
+      className="fixed inset-0 z-[110] flex items-center justify-center p-4 opacity-100 pointer-events-auto transition-all duration-200 ease-out"
     >
       {/* Backdrop */}
       <div
