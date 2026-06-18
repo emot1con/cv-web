@@ -6,7 +6,7 @@ export default function Footer() {
           {/* Left */}
           <div className="flex items-center gap-3 text-xs font-mono text-neo-text-muted font-bold">
             <i className="bx bx-copyright" />
-            <span>{new Date().getFullYear()} — Built with React & Tailwind</span>
+            <span>{new Date().getFullYear()} numpyh. All rights reserved.</span>
             <span className="hidden sm:inline-block w-[2px] h-3 bg-neo-border" />
             <span
               id="footer-version-badge"

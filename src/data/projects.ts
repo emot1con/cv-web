@@ -15,7 +15,7 @@ export const projects: Project[] = [
       'Containerized with Docker',
     ],
     githubUrl: 'https://github.com/emot1con/mistletoe',
-    date: '2024',
+    date: '2026',
     role: 'Backend Developer',
   },
   {
@@ -32,7 +32,7 @@ export const projects: Project[] = [
       'Distributed transaction handling',
     ],
     githubUrl: 'https://github.com/emot1con/Cloud-Native-Distributed-Transaction-System-Go-gRPC-Kafka-K8s-and-Payment-Gateway',
-    date: '2024',
+    date: '2025',
     role: 'Backend Developer',
   },
   {
@@ -49,7 +49,7 @@ export const projects: Project[] = [
       'Containerized deployment',
     ],
     githubUrl: 'https://github.com/emot1con/cutURL',
-    date: '2023',
+    date: '2025',
     role: 'Backend Developer',
   },
 ];
