@@ -22,7 +22,7 @@ export default function ProjectsPage() {
 
 
       {/* Certifications Section */}
-      <section className="py-20 lg:py-32 relative">
+      <section className="py-20 lg:py-32 border-t-3 border-neo-border relative">
         <motion.div
           className="container mx-auto px-4 lg:px-8 relative z-10"
           variants={staggerContainer}

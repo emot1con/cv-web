@@ -21,7 +21,7 @@ const COMMANDS: Record<string, string> = {
   Frameworks:   Gin, React, Next.js, Node.js
   Tools:        Git, Docker, Kubernetes, Kafka, Redis
   Databases:    PostgreSQL, SQL Server, MySQL`,
-  projects: `Featured Projects: Check out Mistletoe, Distributed Transaction System, and CutURL.
+  projects: `Featured Projects: Check out Kiosk, Mistletoe, Vispera, and CutURL.
   Navigate to the Projects section above for full details.`,
   contact: `Email:   arqanpurusa@gmail.com
   WhatsApp: +62 857-6937-1002

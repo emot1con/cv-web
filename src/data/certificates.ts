@@ -2,6 +2,15 @@ import type { Certificate } from '../types';
 
 export const certificates: Certificate[] = [
   {
+    id: 8,
+    title: 'CCNA: Introduction to Networks',
+    issuer: 'Cisco',
+    date: 'Jun 2026',
+    credentialUrl: 'https://www.credly.com/badges/10138f2f-7256-4ba7-833e-b5ccc7aa84b6/public_url',
+    image: '/img/certs/cisco1.png',
+    category: 'Networking',
+  },
+  {
     id: 1,
     title: 'Microservices with Go',
     issuer: 'Udemy',

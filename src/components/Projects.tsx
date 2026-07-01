@@ -8,6 +8,7 @@ import { fadeInUp, staggerContainer } from '../lib/animations';
 
 export default function Projects() {
   const [selected, setSelected] = useState<Project | null>(null);
+  const [showAllProjects, setShowAllProjects] = useState(false);
 
   return (
     <>
@@ -37,8 +38,14 @@ export default function Projects() {
 
           {/* Project Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project) => (
-              <motion.div key={project.id} variants={fadeInUp}>
+            {(showAllProjects ? projects : projects.slice(0, 3)).map((project) => (
+              <motion.div
+                key={project.id}
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
                 <SpotlightCard className="p-0 cursor-pointer h-full">
                   <div
                     onClick={() => setSelected(project)}
@@ -85,6 +92,19 @@ export default function Projects() {
               </motion.div>
             ))}
           </div>
+
+          {/* See More Button */}
+          {projects.length > 3 && (
+            <div className="flex justify-center mt-12">
+              <button
+                onClick={() => setShowAllProjects(!showAllProjects)}
+                className="neo-btn-secondary"
+              >
+                <span>{showAllProjects ? 'See Less' : 'See More'}</span>
+                <i className={`bx ${showAllProjects ? 'bx-chevron-up' : 'bx-chevron-down'} text-lg`} />
+              </button>
+            </div>
+          )}
         </motion.div>
       </section>
 

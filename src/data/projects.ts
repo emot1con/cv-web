@@ -2,6 +2,23 @@ import type { Project } from '../types';
 
 export const projects: Project[] = [
   {
+    id: 4,
+    title: 'Kiosk - Webhook Management & Delivery Middleware',
+    shortDesc: 'Robust, scalable, and resilient webhook proxy designed to handle high-volume event ingestion, signature validation, and reliable delivery with automatic retries.',
+    longDesc: 'Kiosk acts as a unified gateway between external webhook providers (Stripe, GitHub, Midtrans, etc.) and your internal microservices. It solves the common pain points of dealing with webhooks: missing events due to temporary downtime, complex signature validations, and lack of visibility into webhook traffic. Instead of exposing your microservices directly to the internet, point your webhook providers to Kiosk. Kiosk will ingest, validate, queue, and reliably deliver the events to your destination services, complete with exponential backoff retries and an analytics dashboard.',
+    image: '/img/projects/kiosk.png',
+    techStack: ['NestJS', 'Next.js', 'TypeScript', 'PostgreSQL', 'RabbitMQ', 'Docker'],
+    features: [
+      'Secure Ingestion: Receive webhooks from multiple providers with automatic HMAC signature validation',
+      'Reliable Delivery: Built-in retry mechanism using RabbitMQ Delayed Message Exchange',
+      'Dead Letter Queue: Store failed events for manual inspection and bulk replay',
+      'Analytics Dashboard: Real-time visibility into delivery success rates and endpoint health',
+    ],
+    githubUrl: 'https://github.com/emot1con/kiosk',
+    date: '2026',
+    role: 'Developer',
+  },
+  {
     id: 1,
     title: 'Mistletoe - AI Feature Impact Analyzer',
     shortDesc: 'AI-powered backend platform for analyzing software feature requests and generating impact estimation reports.',
@@ -16,11 +33,11 @@ export const projects: Project[] = [
     ],
     githubUrl: 'https://github.com/emot1con/mistletoe',
     date: '2026',
-    role: 'Backend Developer',
+    role: 'Developer',
   },
   {
     id: 2,
-    title: 'Distributed Transaction System',
+    title: 'Vispera',
     shortDesc: 'Event-driven e-commerce microservices system for order and payment processing.',
     longDesc: 'Built a distributed microservices system for order and payment processing. Utilizes event-driven architecture with Kafka, ensuring data consistency and reliable transactions across services.',
     image: '/img/projects/distributed-tx.png',
@@ -33,7 +50,7 @@ export const projects: Project[] = [
     ],
     githubUrl: 'https://github.com/emot1con/Cloud-Native-Distributed-Transaction-System-Go-gRPC-Kafka-K8s-and-Payment-Gateway',
     date: '2025',
-    role: 'Backend Developer',
+    role: 'Developer',
   },
   {
     id: 3,
@@ -50,6 +67,6 @@ export const projects: Project[] = [
     ],
     githubUrl: 'https://github.com/emot1con/cutURL',
     date: '2025',
-    role: 'Backend Developer',
+    role: 'Developer',
   },
 ];

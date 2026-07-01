@@ -50,7 +50,7 @@ export default function Preloader() {
             className="text-center space-y-2"
           >
             <div className="text-xl font-extrabold font-mono text-neo-text-primary tracking-tight">
-              ~/portfolio
+              ~/Numpyh
             </div>
             <div className="text-xs font-mono text-neo-text-muted tracking-widest uppercase font-bold">
               Initializing system...
