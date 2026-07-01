@@ -85,7 +85,7 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <MagneticWrapper className="w-full sm:w-auto">
                 <a
-                  href="https://drive.google.com/uc?export=download&id=1zSXkQCNfjG2H65lEIO3OTlLr2gRc169H"
+                  href="https://drive.google.com/uc?export=download&id=1t4QNGLxfbHV-VCuUXpxCLK2ekVEZTAwQ"
                   target="_blank"
                   className="neo-btn w-full sm:w-auto"
                 >
