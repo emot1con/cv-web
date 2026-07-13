@@ -73,4 +73,13 @@ export const certificates: Certificate[] = [
     image: '/img/certs/6jdy3RIHeJswdOWiNnP35+wcPxH7lpRAxvhPFWvm2pc=.png',
     category: 'Cloud Infrastructure',
   },
+  {
+    id: 9,
+    title: 'Spec-Driven Development dengan Kiro',
+    issuer: 'Dicoding Indonesia',
+    date: 'Jul 2026',
+    credentialUrl: 'https://www.dicoding.com/certificates/N9ZON8M2YXG5',
+    image: '/img/certs/1781053702412.jpeg',
+    category: 'Software Engineering',
+  },
 ];
